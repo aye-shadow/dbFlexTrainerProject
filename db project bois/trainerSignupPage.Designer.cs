@@ -204,6 +204,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(219, 33);
             comboBox1.TabIndex = 21;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // yearsOfExperienceUpDown
             // 
@@ -212,6 +213,7 @@
             yearsOfExperienceUpDown.Size = new Size(98, 31);
             yearsOfExperienceUpDown.TabIndex = 22;
             yearsOfExperienceUpDown.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            yearsOfExperienceUpDown.ValueChanged += yearsOfExperienceUpDown_ValueChanged;
             // 
             // label1
             // 
@@ -236,14 +238,17 @@
             signupButton.TabIndex = 24;
             signupButton.Text = "SIGN UP";
             signupButton.UseVisualStyleBackColor = false;
+            signupButton.Click += signupButton_Click;
             // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "d1", "d2", "d3" });
             comboBox2.Location = new Point(67, 322);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(219, 33);
             comboBox2.TabIndex = 26;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // specialtyLabel
             // 
@@ -279,7 +284,7 @@
             textBox1.TabIndex = 27;
             textBox1.TextChanged += textBox1_TextChanged_1;
             // 
-            // trainerSignup
+            // trainerSignupPage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -309,8 +314,8 @@
             Controls.Add(fnameLabel);
             Controls.Add(fnameTextBox);
             Controls.Add(goBackButton);
-            Icon = Icon.FromHandle((global::db_project_bois.Properties.Resources.icon).GetHicon());
-            Name = "trainerSignup";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "trainerSignupPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trainer Signup";
             Load += memberSignup_Load;

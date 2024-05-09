@@ -222,6 +222,7 @@
             gymNameTextBox.PasswordChar = '*';
             gymNameTextBox.Size = new Size(219, 31);
             gymNameTextBox.TabIndex = 47;
+            gymNameTextBox.TextChanged += gymNameTextBox_TextChanged;
             // 
             // gymLocationTextBox
             // 
@@ -257,7 +258,7 @@
             Controls.Add(fnameLabel);
             Controls.Add(fnameTextBox);
             Controls.Add(goBackButton);
-            Icon = Icon.FromHandle((global::db_project_bois.Properties.Resources.icon).GetHicon());
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ownerSignUpPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gym Owner Signup";

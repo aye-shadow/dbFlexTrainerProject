@@ -177,15 +177,16 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(405, 26);
             comboBox1.TabIndex = 70;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
             // textBox1
             // 
-            textBox1.Enabled = false;
             textBox1.Font = new Font("Arial Rounded MT Bold", 8F);
             textBox1.Location = new Point(317, 60);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(386, 26);
             textBox1.TabIndex = 63;
+            textBox1.TextChanged += textBox1_TextChanged_1;
             // 
             // label9
             // 
@@ -226,6 +227,7 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(274, 26);
             comboBox2.TabIndex = 72;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -266,6 +268,7 @@
             textBox4.PasswordChar = '*';
             textBox4.Size = new Size(344, 26);
             textBox4.TabIndex = 76;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // textBox3
             // 
@@ -274,6 +277,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(389, 26);
             textBox3.TabIndex = 75;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label7
             // 
@@ -341,6 +345,7 @@
             numericUpDown2.Size = new Size(91, 26);
             numericUpDown2.TabIndex = 84;
             numericUpDown2.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
             // 
             // label5
             // 

@@ -18,10 +18,97 @@ namespace Db_project_1
 {
     public partial class Members : Form
     {
-        public Members()
+        public int id;
+        public Members(int ID = 1)
         {
+            this.id = ID;
             InitializeComponent();
             textBox5.KeyPress += textBox5_KeyPressed;
+            Dat();
+            try
+            {
+                SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                string query = "SELECT distinct GymName FROM Gym$";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                comboBox1.Items.Clear();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader["GymName"].ToString());
+                }
+                reader.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        public void Dat()
+        {
+
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+            conn.Open();
+            SqlCommand cm;
+
+            string q = "SELECT CONCAT(FirstName, ' ', LastName) As C FROM Member$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            SqlDataReader r;//= cm.ExecuteReader();
+            string n = cm.ExecuteScalar().ToString();
+                //r.GetOrdinal("C").ToString();
+            textBox1.Text = n;
+            if (string.IsNullOrEmpty(n))
+            {
+                MessageBox.Show("error");
+            }
+            cm.Dispose();
+            q = "SELECT [email] as C FROM Member$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+             n = cm.ExecuteScalar().ToString();
+            textBox3.Text = n;
+
+            cm.Dispose();
+            q = "SELECT Password as C FROM Member$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox4.Text = n;
+
+            cm.Dispose();
+            q = "SELECT Contact as C FROM Member$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox5.Text = n;
+
+
+            cm.Dispose();
+            q = "SELECT Height as C FROM Member$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            numericUpDown1.Text = n;
+
+            cm.Dispose();
+            q = "SELECT Weight as C FROM Member$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            numericUpDown2.Text = n;
+
+            cm.Dispose();
+            q = "select gymname from gym$\r\njoin member_gym$ on gym$.gymId = member_gym$.gymid\r\nwhere member_gym$.memberid = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            comboBox1.Text = n;
+
+            cm.Dispose();
+            q = "select MembershipType \r\nfrom gym$\r\njoin member_gym$ on gym$.gymId = member_gym$.gymid\r\nwhere member_gym$.memberid = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            comboBox2.Text = n;
+
+
+            conn.Close();
+
         }
 
         private bool gymSelected()
@@ -55,7 +142,6 @@ namespace Db_project_1
         {
             button1.Visible = true;
             button2.Visible = true;
-
             textBox1.Enabled = true;
             textBox3.Enabled = true;
             textBox4.Enabled = true;
@@ -63,7 +149,7 @@ namespace Db_project_1
             numericUpDown1.Enabled = true;
             numericUpDown2.Enabled = true;
             comboBox1.Enabled = true;
-
+            comboBox2.Enabled = true;
             linkLabel1.Enabled = false;
             linkLabel2.Enabled = false;
             linkLabel4.Enabled = false;
@@ -74,15 +160,15 @@ namespace Db_project_1
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (!gymSelected())
+         //   if (!gymSelected())
             {
-                workoutPlan form = new workoutPlan(true);
+                workoutPlan form = new workoutPlan(true );
                 this.Hide();
                 form.ShowDialog();
             }
-            else
+         //   else
             {
-                MessageBox.Show("Please select a gym first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        MessageBox.Show("Please select a gym first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -130,7 +216,7 @@ namespace Db_project_1
             textBox5.Enabled = false;
             numericUpDown1.Enabled = false;
             numericUpDown2.Enabled = false;
-            comboBox1.Enabled = false;
+            comboBox2.Enabled = false;
 
             linkLabel1.Enabled = true;
             linkLabel2.Enabled = true;
@@ -173,7 +259,75 @@ namespace Db_project_1
                 else
                 {
                     // email is also valid
-                    // update personal details in db
+
+                    SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                    string m = textBox3.Text;
+                    string f = textBox1.Text;
+                    string l;
+                    string c = textBox5.Text;
+                    string p1 = textBox4.Text;
+                    int weight = (int)numericUpDown2.Value;
+                    int height = (int)numericUpDown1.Value;
+                    string gym = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : "";
+                    string membershipType = comboBox2.SelectedItem != null ? comboBox2.SelectedItem.ToString() : "";
+                    
+                    string fullName = f.Trim(); 
+
+                    string[] parts = fullName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    string firstName = ""; 
+                    string lastName = ""; 
+
+                    if (parts.Length > 0)
+                    {
+                        firstName = parts[0]; // First part is the first name
+
+                        // Concatenate remaining parts (if any) to form the last name
+                        for (int i = 1; i < parts.Length; i++)
+                        {
+                            lastName += parts[i] + " ";
+                        }
+
+                        lastName = lastName.Trim(); // Remove trailing whitespace
+                    }
+
+                    // Now 'firstName' and 'lastName' contain the separated first name and last name, respectively
+
+                    // You can then use these variables to insert into the database
+
+
+                    conn.Open();
+                    SqlCommand command;
+                    string query = " UPDATE Member$ " +
+               "SET FirstName = @fname, LastName = @lname, Email = @email, " +
+               " Contact = @contactnum, Password = @password, Weight = @weight, " +
+               " Height = @height,  " +
+               " RegistrationDate = GETDATE()  " +
+               "WHERE ID = @memberID";
+                    using (command = new SqlCommand(query, conn))
+                    {
+                        int rowsAffected;
+                        command.Parameters.AddWithValue("@fname", firstName);
+                        command.Parameters.AddWithValue("@lname", lastName);
+                        command.Parameters.AddWithValue("@email", m);
+                        command.Parameters.AddWithValue("@contactnum", c);
+                        command.Parameters.AddWithValue("@password", p1);
+                        command.Parameters.AddWithValue("@weight", weight);
+                        command.Parameters.AddWithValue("@height", height);
+                        command.Parameters.AddWithValue("@memberID", id); 
+
+                        // Execute the query
+                        rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected >= 1)
+                        {
+                            MessageBox.Show("Member information updated successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update member information.");
+                        }
+                    }
+
                     resetValues();
                 }
             }
@@ -204,6 +358,41 @@ namespace Db_project_1
                 // If not a control key or a digit, ignore the key press event
                 e.Handled = true;
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

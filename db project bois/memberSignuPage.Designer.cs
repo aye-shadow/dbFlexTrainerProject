@@ -66,6 +66,7 @@
             signupButton.TabIndex = 46;
             signupButton.Text = "SIGN UP";
             signupButton.UseVisualStyleBackColor = false;
+            signupButton.Click += signupButton_Click;
             // 
             // heightLabel
             // 
@@ -88,14 +89,17 @@
             yearsOfExperienceUpDown.Size = new Size(98, 31);
             yearsOfExperienceUpDown.TabIndex = 44;
             yearsOfExperienceUpDown.Value = new decimal(new int[] { 120, 0, 0, 0 });
+            yearsOfExperienceUpDown.ValueChanged += yearsOfExperienceUpDown_ValueChanged;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "ijoi", "uh", "uooh" });
             comboBox1.Location = new Point(306, 346);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(219, 33);
             comboBox1.TabIndex = 43;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // membershipTypeLabel
             // 
@@ -128,6 +132,7 @@
             contactTextBox.Name = "contactTextBox";
             contactTextBox.Size = new Size(219, 31);
             contactTextBox.TabIndex = 40;
+            contactTextBox.TextChanged += contactTextBox_TextChanged;
             // 
             // confirmPasswordLabel
             // 
@@ -148,6 +153,7 @@
             confirmPasswordTextBox.PasswordChar = '*';
             confirmPasswordTextBox.Size = new Size(219, 31);
             confirmPasswordTextBox.TabIndex = 38;
+            confirmPasswordTextBox.TextChanged += confirmPasswordTextBox_TextChanged;
             // 
             // passwordLabel
             // 
@@ -168,6 +174,7 @@
             passwordTextBox.PasswordChar = '*';
             passwordTextBox.Size = new Size(219, 31);
             passwordTextBox.TabIndex = 36;
+            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // emailLabel
             // 
@@ -187,6 +194,7 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(219, 31);
             emailTextBox.TabIndex = 34;
+            emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
             // lnameLabel
             // 
@@ -206,6 +214,7 @@
             lnameTextBox.Name = "lnameTextBox";
             lnameTextBox.Size = new Size(219, 31);
             lnameTextBox.TabIndex = 32;
+            lnameTextBox.TextChanged += lnameTextBox_TextChanged;
             // 
             // fnameLabel
             // 
@@ -261,14 +270,17 @@
             numericUpDown1.Size = new Size(98, 31);
             numericUpDown1.TabIndex = 49;
             numericUpDown1.Value = new decimal(new int[] { 120, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "dd", "dfsdf", "cxc", "sdf" });
             comboBox3.Location = new Point(67, 346);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(219, 33);
             comboBox3.TabIndex = 52;
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // label1
             // 

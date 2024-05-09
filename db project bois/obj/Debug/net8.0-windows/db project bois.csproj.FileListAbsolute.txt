@@ -88,3 +88,70 @@ C:\Users\Administrator\Desktop\sawab\meow\meow\db project bois\obj\Debug\net8.0-
 C:\Users\Administrator\Desktop\sawab\meow\meow\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerAddNewGym.resources
 C:\Users\Administrator\Desktop\sawab\meow\meow\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerAndHisGyms.resources
 C:\Users\Administrator\Desktop\sawab\meow\meow\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerDeleteExistingGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.addGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.adminGymReport.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.admin_home.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\Db_project_1.appointmentdetails.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.createDietPlan.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.createNewWorkout.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\Db_project_1.dietPlan.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.editPlan.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.editWorkout.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.homePage.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.joinNewGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.leaveCurrentGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.loginPage.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.manageDietPlan.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.manage_appointments_trainer.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.manage_gym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.Manage_member.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\Db_project_1.Members.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.memberSignup.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\Db_project_1.memberViewSpecificAppointment.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\Db_project_1.member_feedback.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.member_report.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerAddNewGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerAndHisGyms.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerDeleteExistingGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerHome.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerManageGyms.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerSignUpPage.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerViewAllMembers.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.Properties.Resources.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.removeGyms.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.signUpPage.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerAppointmentDetails.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerMemberManageGym.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.trainerSignupPage.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.Trainer_home.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.typeOfLogin.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewGyms.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewPlanReport.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewWorkout.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewWorkoutReport.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.view_feedback_trainer.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.view_members_trainer.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\Db_project_1.workoutPlan.resources
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.GenerateResource.cache
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.AssemblyInfoInputs.cache
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.AssemblyInfo.cs
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\refint\db project bois.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\db project bois.exe
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\db project bois.deps.json
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\db project bois.runtimeconfig.json
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\db project bois.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\db project bois.pdb
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.AssemblyReference.cache
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db proje.6732C952.Up2Date
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\db project bois.genruntimeconfig.cache
+C:\Users\Dell\Downloads\db_project_bois[1]_1\db project bois\obj\Debug\net8.0-windows\ref\db project bois.dll

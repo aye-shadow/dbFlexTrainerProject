@@ -1,0 +1,157 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|c:\\users\\dell\\downloads\\db_project_bois[1]_1\\db project bois\\loginpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:loginpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|c:\\users\\dell\\downloads\\db_project_bois[1]_1\\db project bois\\ownersignuppage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:ownersignuppage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|c:\\users\\dell\\downloads\\db_project_bois[1]_1\\db project bois\\membersignupage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:membersignupage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|c:\\users\\dell\\downloads\\db_project_bois[1]_1\\db project bois\\member.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:member.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|c:\\users\\dell\\downloads\\db_project_bois[1]_1\\db project bois\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|c:\\users\\dell\\downloads\\db_project_bois[1]_1\\db project bois\\trainersignuppage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:trainersignuppage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 115,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MEMBER.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\MEMBER.cs",
+              "RelativeDocumentMoniker": "MEMBER.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\MEMBER.cs",
+              "RelativeToolTip": "MEMBER.cs",
+              "ViewState": "AQIAAAkAAAAAvMzMzMwMwBgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T11:37:40.789Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MEMBER.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\MEMBER.cs",
+              "RelativeDocumentMoniker": "MEMBER.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\MEMBER.cs [Design]",
+              "RelativeToolTip": "MEMBER.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T11:37:42.056Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MEMBER.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\MEMBER.Designer.cs",
+              "RelativeDocumentMoniker": "MEMBER.Designer.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\MEMBER.Designer.cs",
+              "RelativeToolTip": "MEMBER.Designer.cs",
+              "ViewState": "AQIAAKsAAACAMzMzMzMvwLMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T08:41:41.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "memberSignuPage.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\memberSignuPage.cs",
+              "RelativeDocumentMoniker": "memberSignuPage.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\memberSignuPage.cs",
+              "RelativeToolTip": "memberSignuPage.cs",
+              "ViewState": "AQIAAIUAAAAAdMzMzMz8v04AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T08:35:45.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "loginPage.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\loginPage.cs",
+              "RelativeDocumentMoniker": "loginPage.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\loginPage.cs",
+              "RelativeToolTip": "loginPage.cs",
+              "ViewState": "AQIAAEsAAACAaWZmZmYuwE8AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T07:46:27.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ownerSignUpPage.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\ownerSignUpPage.cs",
+              "RelativeDocumentMoniker": "ownerSignUpPage.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\ownerSignUpPage.cs",
+              "RelativeToolTip": "ownerSignUpPage.cs",
+              "ViewState": "AQIAADoAAAAAODMzMzPzv2AAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T04:43:46.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "trainerSignupPage.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\trainerSignupPage.cs",
+              "RelativeDocumentMoniker": "trainerSignupPage.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\trainerSignupPage.cs",
+              "RelativeToolTip": "trainerSignupPage.cs",
+              "ViewState": "AQIAAIEAAACAXmZmZmYqwIYAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T04:08:58.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAywBAAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T18:47:13.021Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
