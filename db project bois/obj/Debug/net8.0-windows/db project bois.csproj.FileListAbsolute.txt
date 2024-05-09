@@ -223,3 +223,71 @@ C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\refint\db proje
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.genruntimeconfig.cache
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\ref\db project bois.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\db project bois.exe
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\db project bois.deps.json
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\db project bois.runtimeconfig.json
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\db project bois.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\db project bois.pdb
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.AssemblyReference.cache
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.addGym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.adminGymReport.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.admin_home.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Db_project_1.appointmentdetails.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.createDietPlan.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.createNewWorkout.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Db_project_1.dietPlan.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.editPlan.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.editWorkout.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.homePage.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.joinNewGym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.leaveCurrentGym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.loginPage.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.manageDietPlan.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.manage_appointments_trainer.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.manage_gym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.Manage_member.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Db_project_1.Members.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.memberSignup.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Db_project_1.memberViewSpecificAppointment.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Db_project_1.member_feedback.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.member_report.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerAddNewGym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerAndHisGyms.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerDeleteExistingGym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerHome.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerManageGyms.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.ownerSignUpPage.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerViewAllMembers.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.Properties.Resources.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.removeGyms.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.signUpPage.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerAppointmentDetails.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerMemberManageGym.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.trainerSignupPage.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.Trainer_home.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.typeOfLogin.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewGyms.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewPlanReport.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewWorkout.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.viewWorkoutReport.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.view_feedback_trainer.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.view_members_trainer.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Db_project_1.workoutPlan.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.GenerateResource.cache
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.GeneratedMSBuildEditorConfig.editorconfig
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.AssemblyInfoInputs.cache
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.AssemblyInfo.cs
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CoreCompileInputs.cache
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.sourcelink.json
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db proje.6732C952.Up2Date
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\refint\db project bois.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.genruntimeconfig.cache
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\ref\db project bois.dll

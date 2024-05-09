@@ -87,12 +87,16 @@ namespace db_project_bois
             }
             if (result == null) 
             {
-                string queryk = "SELECT max(ID) FROM gym$ ";
-                command = new SqlCommand(queryk, conn);
-                result = command.ExecuteScalar();
+                MessageBox.Show("gym already registered");
+                return;
             }
+            string queryk = "SELECT max(ID) FROM gym$ ";
+            command = new SqlCommand(queryk, conn);
+            result = command.ExecuteScalar();
+            
             int gID = Convert.ToInt32(result);
             int gymID = Convert.ToInt32(result);
+            gymID += 1;
             string query3 = "INSERT INTO Gym$ (GymID,GymOwnerID, GymName, Location, Status) " +
                  "VALUES (@id, @gymOwnerID, @gymName, @location, 'Active')";
 

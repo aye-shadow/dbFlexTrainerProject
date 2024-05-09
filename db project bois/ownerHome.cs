@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace db_project_bois
 {
@@ -117,6 +118,7 @@ namespace db_project_bois
             linkLabel3.Enabled = false;
             linkLabel4.Enabled = false;
             linkLabel5.Enabled = false;
+            linkLabel6.Visible = false;
             linkLabel6.Enabled = false;
 
             ogName = textBox1.Text;
@@ -240,7 +242,8 @@ namespace db_project_bois
 
             foreach (Control control in Controls)
             {
-                if (control is TextBox textBox && textBox != textBox6)
+
+                if (control is System.Windows.Forms.TextBox textBox && textBox != textBox6)
                 {
                     if (string.IsNullOrEmpty(textBox.Text))
                     {
@@ -262,6 +265,61 @@ namespace db_project_bois
                 else
                 {
                     // email is also valid
+                    SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                    string m = textBox3.Text;
+                    string f = textBox1.Text;
+                    string l;
+                    string c = textBox5.Text;
+                    string p1 = textBox4.Text;
+                    string fullName = f.Trim();
+
+                    string[] parts = fullName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    string firstName = "";
+                    string lastName = "";
+
+                    if (parts.Length > 0)
+                    {
+                        firstName = parts[0]; // First part is the first name
+
+                        // Concatenate remaining parts (if any) to form the last name
+                        for (int i = 1; i < parts.Length; i++)
+                        {
+                            lastName += parts[i] + " ";
+                        }
+
+                        lastName = lastName.Trim(); // Remove trailing whitespace
+                    }
+
+                    // Now 'firstName' and 'lastName' contain the separated first name and last name, respectively
+
+                    // You can then use these variables to insert into the database
+                    conn.Open();
+                    SqlCommand command;
+                    string query = " UPDATE gym_owner$ " +
+               "SET FirstName = @fname, LastName = @lname, Email = @email, " +
+               " Contact = @contactnum, Password = @password  " +
+               "WHERE ID = @id";
+                    using (command = new SqlCommand(query, conn))
+                    {
+                        int rowsAffected;
+                        command.Parameters.AddWithValue("@fname", firstName);
+                        command.Parameters.AddWithValue("@lname", lastName);
+                        command.Parameters.AddWithValue("@email", m);
+                        command.Parameters.AddWithValue("@contactnum", c);
+                        command.Parameters.AddWithValue("@password", p1);
+                        command.Parameters.AddWithValue("@id", id);
+                        // Execute the query
+                        rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected >= 1)
+                        {
+                            MessageBox.Show("Owner information updated successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update owner information.");
+                        }
+                    }
                     // update personal details
                     resetValues();
                 }
@@ -282,6 +340,7 @@ namespace db_project_bois
             linkLabel4.Enabled = true;
             linkLabel5.Enabled = true;
             linkLabel6.Enabled = true;
+            linkLabel6.Visible = true;
         }
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

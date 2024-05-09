@@ -111,7 +111,7 @@ namespace db_project_bois
             }
             else if (memberType == "trainer")
             {
-                string query = "SELECT count(*) as column1 FROM AcceptedTrainer WHERE [Email] = '" + a + "' AND [PASSWORD] = '" + b + "'";
+                string query = "SELECT count(*) as column1 FROM trainer$ WHERE [Email] = '" + a + "' AND [PASSWORD] = '" + b + "'";
                 cm = new SqlCommand(query, conn);
                 SqlDataReader d = cm.ExecuteReader();
                 int c = 0;
@@ -123,14 +123,14 @@ namespace db_project_bois
                 if (c == 0) { MessageBox.Show("invalid username or password"); return; }
                 else MessageBox.Show("Login Successfully");
                 cm.Dispose();
-                conn.Close();
 
-                string query4 = "SELECT ID FROM AcceptedTrainer where [Email] ='" + a + "'";
+                string query4 = "SELECT ID FROM trainer$ where [Email] ='" + a + "'";
                 object r;
                 cm = new SqlCommand(query4, conn);
                 r = cm.ExecuteScalar();
                 int ID = Convert.ToInt32(r);
                 conn.Close();
+
                 Trainer_home trainer_Home = new Trainer_home(ID);
                 this.Hide();
                 trainer_Home.Show();

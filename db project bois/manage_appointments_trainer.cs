@@ -15,13 +15,16 @@ namespace WindowsFormsApp1
         // load appointment dates from db into array
         private List<DateTime> datesToHighlight = new List<DateTime>();
 
-        public manage_appointments_trainer()
+        public int id;
+        public string gname;
+        public manage_appointments_trainer(int id , string gymname )
         {
             InitializeComponent();
-
             loadAppointmentDate();
             updateCalender();
             monthCalendar1.DateSelected += monthCalendar1_DateSelected;
+            this.id = id;
+            gname = gymname;
         }
 
 
@@ -89,7 +92,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Trainer_home trainer_Home = new Trainer_home();
+            Trainer_home trainer_Home = new Trainer_home(id);
             this.Hide();
             trainer_Home.Show();
         }

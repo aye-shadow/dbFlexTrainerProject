@@ -139,6 +139,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(450, 33);
             comboBox1.TabIndex = 69;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox5
             // 
@@ -148,6 +149,7 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(428, 31);
             textBox5.TabIndex = 66;
+            textBox5.TextChanged += textBox5_TextChanged;
             // 
             // label6
             // 
@@ -169,6 +171,7 @@
             textBox4.PasswordChar = '*';
             textBox4.Size = new Size(382, 31);
             textBox4.TabIndex = 64;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // textBox3
             // 
@@ -178,6 +181,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(432, 31);
             textBox3.TabIndex = 63;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // textBox1
             // 
@@ -188,6 +192,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(428, 26);
             textBox1.TabIndex = 62;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label7
             // 

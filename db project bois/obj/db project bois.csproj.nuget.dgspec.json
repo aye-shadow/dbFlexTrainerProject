@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj": {}
+    "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\db project bois.csproj": {}
   },
   "projects": {
-    "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj": {
+    "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\db project bois.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
+        "projectUniqueName": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
         "projectName": "db project bois",
-        "projectPath": "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
+        "projectPath": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\dbFlexTrainerProject\\db project bois\\obj\\",
+        "outputPath": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",

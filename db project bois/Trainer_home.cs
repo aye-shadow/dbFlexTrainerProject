@@ -38,15 +38,15 @@ namespace WindowsFormsApp1
     public partial class Trainer_home : Form
     {
         public int id;
-        public Trainer_home( int id =1)
+        public Trainer_home(int id = 1)
         {
             InitializeComponent();
             this.id = id;
-
+            Dat();
             try
             {
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT distinct GymName FROM Gym$ join trainer_gym$ on gym$.gymid = trainer_gym$.gymid where gymid = " + id;
+                string query = "SELECT GymName FROM Gym$ join trainer_gym$ on gym$.gymid = trainer_gym$.gymid where trainerid = " + id;
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -62,6 +62,43 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+        public void Dat()
+        {
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+            conn.Open();
+            SqlCommand cm;
+
+            string q = "SELECT CONCAT(FirstName, ' ', LastName) As C FROM trainer$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            SqlDataReader r;
+            string n = cm.ExecuteScalar().ToString();
+            //r.GetOrdinal("C").ToString();
+            textBox1.Text = n;
+            if (string.IsNullOrEmpty(n))
+            {
+                MessageBox.Show("error");
+            }
+            cm.Dispose();
+            q = "SELECT [email] as C FROM trainer$  WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox3.Text = n;
+
+            cm.Dispose();
+            q = "SELECT Password as C FROM trainer$  WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox4.Text = n;
+
+            cm.Dispose();
+            q = "SELECT CAST(AVG(stars) AS INT) FROM Feedback$ WHERE trainerid = " + id + " GROUP BY trainerid";
+            cm = new SqlCommand(q, conn);
+            int a = Convert.ToInt32(cm.ExecuteScalar());
+            textBox5.Text = a.ToString();
+
+            cm.Dispose();
+            conn.Close();
         }
 
         private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -160,6 +197,54 @@ namespace WindowsFormsApp1
                 {
                     // email is also valid
                     // update personal details in db
+                    SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                    string m = textBox3.Text;
+                    string f = textBox1.Text;
+                    string l;
+                    string p1 = textBox4.Text;
+                    string fullName = f.Trim();
+
+                    string[] parts = fullName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    string firstName = "";
+                    string lastName = "";
+
+                    if (parts.Length > 0)
+                    {
+                        firstName = parts[0];
+                        for (int i = 1; i < parts.Length; i++)
+                        {
+                            lastName += parts[i] + " ";
+                        }
+
+                        lastName = lastName.Trim();
+                    }
+
+                    conn.Open();
+                    SqlCommand command;
+                    string query = " UPDATE trainer$ " +
+               "SET FirstName = @fname, LastName = @lname, Email = @email, " +
+               "  Password = @password  " +
+               "WHERE ID = @id";
+                    using (command = new SqlCommand(query, conn))
+                    {
+                        int rowsAffected;
+                        command.Parameters.AddWithValue("@fname", firstName);
+                        command.Parameters.AddWithValue("@lname", lastName);
+                        command.Parameters.AddWithValue("@email", m);
+                        command.Parameters.AddWithValue("@password", p1);
+                        command.Parameters.AddWithValue("@id", id);
+                        // Execute the query
+                        rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected >= 1)
+                        {
+                            MessageBox.Show("Owner information updated successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update owner information.");
+                        }
+                    }
                     resetValues();
                 }
             }
@@ -168,10 +253,16 @@ namespace WindowsFormsApp1
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // can view all appointments regardless of gym
-
-            manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer();
-            this.Hide();
-            manage_Appointments_Trainer.Show();
+            if (!gymSelected())
+            {
+                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(id, comboBox1.Text());
+                this.Hide();
+                manage_Appointments_Trainer.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a gym first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void linkLabel11_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -245,6 +336,31 @@ namespace WindowsFormsApp1
             trainerMemberManageGym trainer_Manage_Gym = new trainerMemberManageGym(false);
             this.Hide();
             trainer_Manage_Gym.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
