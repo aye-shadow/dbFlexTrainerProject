@@ -11,14 +11,57 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using db_project_bois;
+using WindowsFormsApp1;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using db_project_bois;
+using WindowsFormsApp1;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
+
 
 namespace WindowsFormsApp1
 {
     public partial class Trainer_home : Form
     {
-        public Trainer_home()
+        public int id;
+        public Trainer_home( int id =1)
         {
             InitializeComponent();
+            this.id = id;
+
+            try
+            {
+                SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                string query = "SELECT distinct GymName FROM Gym$ join trainer_gym$ on gym$.gymid = trainer_gym$.gymid where gymid = " + id;
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                comboBox1.Items.Clear();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader["GymName"].ToString());
+                }
+                reader.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -94,7 +137,7 @@ namespace WindowsFormsApp1
 
             foreach (Control control in Controls)
             {
-                if (control is TextBox textBox && textBox != textBox5)
+                if (control is System.Windows.Forms.TextBox textBox && textBox != textBox5)
                 {
                     if (string.IsNullOrEmpty(textBox.Text))
                     {

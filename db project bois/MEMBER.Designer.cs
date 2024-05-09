@@ -222,7 +222,7 @@
             // 
             comboBox2.Enabled = false;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Dummy Gym1", "Dummy Gym2", "Dummy Gym3", "Dummy Gym4", "Dummy Gym5", "Dummy Gym6", "Dummy Gym7" });
+            comboBox2.Items.AddRange(new object[] { "Standard", "Premium", "Basic" });
             comboBox2.Location = new Point(429, 125);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(274, 26);

@@ -15,8 +15,10 @@ namespace Db_project_1
     public partial class workoutPlan : Form
     {
         private bool memberType;
+        public int  memberid;
         public workoutPlan(bool memberType)
         {
+      //      memberid  = id; 
             InitializeComponent();
             this.memberType = memberType;
         }
@@ -39,7 +41,7 @@ namespace Db_project_1
         {
             if (memberType == true)
             {
-                Members members = new Members();
+                Members members = new Members(memberid);
                 this.Hide();
                 members.Show();
             }

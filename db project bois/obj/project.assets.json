@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\db project bois.csproj",
+      "projectUniqueName": "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
       "projectName": "db project bois",
-      "projectPath": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\db project bois.csproj",
+      "projectPath": "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\obj\\",
+      "outputPath": "C:\\dbFlexTrainerProject\\db project bois\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",

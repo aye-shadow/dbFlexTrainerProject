@@ -28,7 +28,7 @@ namespace Db_project_1
             try
             {
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT distinct GymName FROM Gym$";
+                string query = "SELECT distinct GymName FROM Gym$ join member_gym$ on gym$.gymid = member_gym$.gymid where memberid = " +id;
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();

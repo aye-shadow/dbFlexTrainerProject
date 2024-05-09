@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,72 @@ namespace db_project_bois
 {
     public partial class ownerHome : Form
     {
-        public ownerHome()
+        public int id;
+        public ownerHome(int id = 1)
         {
             InitializeComponent();
             textBox5.KeyPress += textBox5_KeyPressed;
+            this.id = id;
+            Dat();
+            try
+            {
+                SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                string query = "SELECT distinct GymName FROM Gym$  where gymownerid = " + id;
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                comboBox1.Items.Clear();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader["GymName"].ToString());
+                }
+                reader.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        public void Dat()
+        {
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+            conn.Open();
+            SqlCommand cm;
+
+            string q = "SELECT CONCAT(FirstName, ' ', LastName) As C FROM Gym_owner$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            SqlDataReader r;//= cm.ExecuteReader();
+            string n = cm.ExecuteScalar().ToString();
+            //r.GetOrdinal("C").ToString();
+            textBox1.Text = n;
+            if (string.IsNullOrEmpty(n))
+            {
+                MessageBox.Show("error");
+            }
+            cm.Dispose();
+            q = "SELECT [email] as C FROM Gym_owner$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox3.Text = n;
+
+            cm.Dispose();
+            q = "SELECT Password as C FROM Gym_owner$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox4.Text = n;
+
+            cm.Dispose();
+            q = "SELECT Contact as C FROM Gym_owner$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox5.Text = n;
+
+            cm.Dispose();
+            q = "SELECT RegistrationDate as C FROM Gym_owner$ WHERE ID = " + id;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox6.Text = n;
         }
 
         private void ownerHome_Load(object sender, EventArgs e)
@@ -233,6 +296,21 @@ namespace db_project_bois
             ownerAndHisGyms ownerAndHisGyms = new ownerAndHisGyms();
             this.Hide();
             ownerAndHisGyms.Show();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

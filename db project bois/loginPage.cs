@@ -94,18 +94,24 @@ namespace db_project_bois
                 {
                     c = d.GetInt32(d.GetOrdinal("column1"));
                 }
+                d.Close();
                 if (c == 0) { MessageBox.Show("invalid username or password"); return; }
                 else MessageBox.Show("Login Successfully");
+                string query4 = "SELECT ID FROM Gym_owner$ where [Email] ='" + a + "'";
+                object r;
+                cm = new SqlCommand(query4, conn);
+                r = cm.ExecuteScalar();
+                int ID = Convert.ToInt32(r);             
                 cm.Dispose();
                 conn.Close();
 
-                ownerHome ownerHome = new ownerHome();
+                ownerHome ownerHome = new ownerHome(ID);
                 this.Hide();
                 ownerHome.Show();
             }
             else if (memberType == "trainer")
             {
-                string query = "SELECT count(*) as column1 FROM Trainer$ WHERE [Email:] = '" + a + "' AND [PASSWORD:] = '" + b + "'";
+                string query = "SELECT count(*) as column1 FROM AcceptedTrainer WHERE [Email] = '" + a + "' AND [PASSWORD] = '" + b + "'";
                 cm = new SqlCommand(query, conn);
                 SqlDataReader d = cm.ExecuteReader();
                 int c = 0;
@@ -113,12 +119,19 @@ namespace db_project_bois
                 {
                     c = d.GetInt32(d.GetOrdinal("column1"));
                 }
+                d.Close();
                 if (c == 0) { MessageBox.Show("invalid username or password"); return; }
                 else MessageBox.Show("Login Successfully");
                 cm.Dispose();
                 conn.Close();
 
-                Trainer_home trainer_Home = new Trainer_home();
+                string query4 = "SELECT ID FROM AcceptedTrainer where [Email] ='" + a + "'";
+                object r;
+                cm = new SqlCommand(query4, conn);
+                r = cm.ExecuteScalar();
+                int ID = Convert.ToInt32(r);
+                conn.Close();
+                Trainer_home trainer_Home = new Trainer_home(ID);
                 this.Hide();
                 trainer_Home.Show();
             }
@@ -132,6 +145,7 @@ namespace db_project_bois
                 {
                     c = d.GetInt32(d.GetOrdinal("column1"));
                 }
+                d.Close();
                 if (c == 0) { MessageBox.Show("invalid username or password"); return; }
                 else MessageBox.Show("Login Successfully");
                 cm.Dispose();

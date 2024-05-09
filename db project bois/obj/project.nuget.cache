@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dp2VtIRzuGcPue60f89UrA7FaUCPRjPcV4TaakU2WXR9Gfq/NQNkEjQGz54Eru8ax0lKZrUwZdQPeefaDta5sA==",
+  "dgSpecHash": "4finDSLOviyjvRbFMyAw2qQjG5uhn8yP3tc65MpU8A4sW+RtwxJCaxub1KzCNQMIY9pFQ35KW12PCUlI4i4rVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Downloads\\db_project_bois[1]_1\\db project bois\\db project bois.csproj",
+  "projectFilePath": "C:\\dbFlexTrainerProject\\db project bois\\db project bois.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

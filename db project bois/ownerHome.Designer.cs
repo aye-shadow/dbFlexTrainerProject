@@ -185,6 +185,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(388, 31);
             textBox6.TabIndex = 49;
+            textBox6.TextChanged += textBox6_TextChanged_1;
             // 
             // label3
             // 
@@ -227,6 +228,7 @@
             textBox4.PasswordChar = '*';
             textBox4.Size = new Size(382, 31);
             textBox4.TabIndex = 45;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // textBox3
             // 
@@ -236,6 +238,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(432, 31);
             textBox3.TabIndex = 44;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // textBox1
             // 

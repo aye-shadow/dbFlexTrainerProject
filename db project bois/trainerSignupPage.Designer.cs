@@ -243,7 +243,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "d1", "d2", "d3" });
+            comboBox2.Items.AddRange(new object[] { "HIIT", "Yoga", "Pilates", "Calisthenics", "Powerlifting", "Bodybuilding", "Zumba", "CrossFit" });
             comboBox2.Location = new Point(67, 322);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(219, 33);
