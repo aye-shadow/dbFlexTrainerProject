@@ -195,7 +195,7 @@ namespace Db_project_1
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            member_feedback form = new member_feedback();
+            member_feedback form = new member_feedback(id);
             this.Hide();
             form.ShowDialog();
         }

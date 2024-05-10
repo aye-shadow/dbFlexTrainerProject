@@ -14,10 +14,9 @@ namespace WindowsFormsApp1
     {
         // load appointment dates from db into array
         private List<DateTime> datesToHighlight = new List<DateTime>();
-
         public int id;
         public string gname;
-        public manage_appointments_trainer(int id , string gymname )
+        public manage_appointments_trainer(int id =1, string gymname ="")
         {
             InitializeComponent();
             loadAppointmentDate();
@@ -26,7 +25,6 @@ namespace WindowsFormsApp1
             this.id = id;
             gname = gymname;
         }
-
 
         private void manage_appointments_trainer_Load(object sender, EventArgs e)
         {
@@ -43,6 +41,7 @@ namespace WindowsFormsApp1
             {
                 datesToHighlight.Add(date);
             }
+
         }
 
         private void updateCalender()
