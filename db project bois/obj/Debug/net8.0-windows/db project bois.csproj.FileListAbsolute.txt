@@ -217,7 +217,6 @@ C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.AssemblyInfo.cs
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CoreCompileInputs.cache
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.sourcelink.json
-C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db proje.6732C952.Up2Date
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.dll
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\refint\db project bois.dll
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
@@ -291,3 +290,4 @@ D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\refi
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.genruntimeconfig.cache
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\ref\db project bois.dll
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CopyComplete

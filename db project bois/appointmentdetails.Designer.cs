@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appointmentdetails));
             button3 = new Button();
             button2 = new Button();
-            monthCalendar1 = new MonthCalendar();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // button3
@@ -53,23 +53,24 @@
             button2.BackColor = Color.FromArgb(246, 87, 125);
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Arial Rounded MT Bold", 8F);
-            button2.Location = new Point(618, 378);
+            button2.Location = new Point(609, 378);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(148, 53);
+            button2.Size = new Size(157, 53);
             button2.TabIndex = 64;
-            button2.Text = "SCHEDULE APPOINTMENT";
+            button2.Text = "SCHEDULE NEW APPOINTMENT";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // monthCalendar1
+            // flowLayoutPanel1
             // 
-            monthCalendar1.Location = new Point(228, 132);
-            monthCalendar1.Margin = new Padding(11, 14, 11, 14);
-            monthCalendar1.MaxSelectionCount = 1;
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 62;
-            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(157, 142);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(455, 176);
+            flowLayoutPanel1.TabIndex = 65;
+            flowLayoutPanel1.WrapContents = false;
             // 
             // appointmentdetails
             // 
@@ -79,8 +80,8 @@
             BackgroundImage = db_project_bois.Properties.Resources.memberViewAppointmentsJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(button2);
-            Controls.Add(monthCalendar1);
             Controls.Add(button3);
             Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -94,6 +95,6 @@
         #endregion
         private Button button3;
         private Button button2;
-        private MonthCalendar monthCalendar1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
