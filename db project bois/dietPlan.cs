@@ -51,6 +51,7 @@ namespace Db_project_1
         {
             flowLayoutPanel1.Controls.Clear();
 
+
             string[] data =
             {
                 "Plan1, Meal1.1 Meal1.2 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3 Meal1.3, Author1",

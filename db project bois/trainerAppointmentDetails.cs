@@ -12,53 +12,34 @@ namespace WindowsFormsApp1
 {
     public partial class trainerAppointmentDetails : Form
     {
-        private int memberID;
-        private bool viewOnly;
+        private bool appointmentType;
         private DateTime dateSelected;
-        private string gymName;
-        public trainerAppointmentDetails(string gymName, bool viewOnly, int memberID = 1, string dateSelected = "")
+        public trainerAppointmentDetails(DateTime showAppointmentDate, bool appointmentType)
         {
             InitializeComponent();
-            this.memberID = memberID;
-            if (dateSelected == "")
+            this.appointmentType = appointmentType;
+            dateSelected = showAppointmentDate;
+            monthCalendar1.SetSelectionRange(dateSelected, dateSelected);
+            monthCalendar1.AddBoldedDate(dateSelected);
+            comboBox1.Enabled = appointmentType;
+
+            if (showAppointmentDate < DateTime.Today)
             {
-                this.dateSelected = DateTime.Today;
+                button3.Visible = false;
+                button2.Visible = false;
             }
             else
             {
-                this.dateSelected = DateTime.Parse(dateSelected);
-            }
-            monthCalendar1.SetSelectionRange(this.dateSelected, this.dateSelected);
-            monthCalendar1.AddBoldedDate(this.dateSelected);
-            this.gymName = gymName;
-            this.viewOnly = viewOnly;
-            comboBox1.Enabled = !viewOnly;
-
-            if(!viewOnly)
-            {
-                monthCalendar1.Enabled = true;
-                button3.Text = "SCHEDULE APPOINTMENT";
-                button2.Visible = false;
-            }
-            else if (viewOnly)
-            {
-                button3.Text = "CANCEL APPOINTMENT";
-                button2.Text = "RESCHEDULE APPOINTMENT";
-                monthCalendar1.Enabled = false;
-                if (this.dateSelected < DateTime.Today)
+                button2.Enabled = true;
+                if (appointmentType)
                 {
-                    button3.Visible = false;
-                    button2.Visible = false;
-
+                    button3.Text = "SCHEDULE APPOINTMENT";
                 }
                 else
                 {
-                    button2.Enabled = true;
-                    button3.Enabled = true;
-                    button3.Visible = true;
-                    button2.Visible = true;
-
+                    button3.Text = "CANCEL APPOINTMENT";
                 }
+                button2.Visible = !appointmentType;
             }
         }
 
@@ -69,9 +50,18 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-           manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(memberID, gymName);
-            this.Hide();
-            manage_Appointments_Trainer.Show();
+            if (button1.Text == "GO BACK")
+            {
+                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer();
+                this.Hide();
+                manage_Appointments_Trainer.Show();
+            }
+            else
+            {
+                button1.Text = "GO BACK";
+                button2.Enabled = true;
+                button3.Text = "CANCEL APPOINTMENT";
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -85,48 +75,48 @@ namespace WindowsFormsApp1
 
                     MessageBox.Show("Appointment Cancelled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(memberID, gymName);
+                    manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer();
                     this.Hide();
                     manage_Appointments_Trainer.Show();
                 }
             }
-            else if (button3.Text == "SCHEDULE APPOINTMENT" && viewOnly == false)
+            else if (button3.Text == "SCHEDULE APPOINTMENT" && appointmentType == false)
+            {
+                // update appointment date to db
+
+                MessageBox.Show("Appointment Successfuly Rescheduled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer();
+                this.Hide();
+                manage_Appointments_Trainer.Show();
+            }
+            else 
             {
                 if (comboBox1.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Select member to schedule with!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter a member to schedule appointment with!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 else
                 {
-                    // add appointment to db
+                    // add new appointment to db
 
                     MessageBox.Show("Appointment Successfuly Scheduled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(memberID, gymName);
+                    manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer();
                     this.Hide();
                     manage_Appointments_Trainer.Show();
                 }
+
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (button2.Text == "RESCHEDULE APPOINTMENT" && viewOnly == true)
-            {
-                monthCalendar1.Enabled = true;
-                button3.Enabled = false;
-                button2.Text = "SCHEDULE APPOINTMENT";
-            }
-            else if (button2.Text == "SCHEDULE APPOINTMENT")
-            {
-                // edit date in db
-
-                MessageBox.Show("Appointment Successfuly Rescheduled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(memberID, gymName);
-                this.Hide();
-                manage_Appointments_Trainer.Show();
-            }
+            monthCalendar1.Enabled = true;
+            button2.Enabled = false;
+            button3.Text = "SCHEDULE APPOINTMENT";
+            button1.Text = "CANCEL";
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -136,12 +126,10 @@ namespace WindowsFormsApp1
 
             if (selectedDate < DateTime.Today)
             {
-                button2.Enabled = false;
                 button3.Enabled = false;
             }
             else
             {
-                button2.Enabled = true;
                 button3.Enabled = true;
             }
         }

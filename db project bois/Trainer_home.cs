@@ -31,13 +31,14 @@ using db_project_bois;
 using WindowsFormsApp1;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 
 namespace WindowsFormsApp1
 {
     public partial class Trainer_home : Form
     {
-        public int id;
+        public int id,gid;
         public Trainer_home(int id = 1)
         {
             InitializeComponent();
@@ -106,7 +107,7 @@ namespace WindowsFormsApp1
             if (!gymSelected())
             {
                 // view members page go to
-                view_members_trainer view_Members_Trainer = new view_members_trainer(selectGymName());
+                view_members_trainer view_Members_Trainer = new view_members_trainer(selectGymName(), gid, id);
                 this.Hide();
                 view_Members_Trainer.Show();
             }
@@ -255,13 +256,9 @@ namespace WindowsFormsApp1
             // can view all appointments regardless of gym
             if (!gymSelected())
             {
-<<<<<<< HEAD
-                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(id, comboBox1.Text);
-=======
                 string a = comboBox1.SelectedItem.ToString();
 
                 manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(id, a);
->>>>>>> origin
                 this.Hide();
                 manage_Appointments_Trainer.Show();
             }
@@ -304,7 +301,19 @@ namespace WindowsFormsApp1
             if (!gymSelected())
             {
                 // go to view feedback page
-                view_feedback_trainer view_Feedback_Trainer = new view_feedback_trainer(selectGymName());
+                //SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                //string query = "SELECT top 1 GymID FROM Gym$ WHERE GymName = @gym";
+                //SqlCommand command;
+                //conn.Open();   
+                //object result;
+                //using (command = new SqlCommand(query, conn))
+                //{
+                //    command.Parameters.AddWithValue("@gym", selectGymName());
+                //    result = command.ExecuteScalar();
+                //}
+                //int gymID = Convert.ToInt32(result);
+
+                view_feedback_trainer view_Feedback_Trainer = new view_feedback_trainer(selectGymName(), gid, id);
                 this.Hide();
                 view_Feedback_Trainer.Show();
             }
@@ -339,7 +348,7 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            trainerMemberManageGym trainer_Manage_Gym = new trainerMemberManageGym(false);
+            trainerMemberManageGym trainer_Manage_Gym = new trainerMemberManageGym(false, id);
             this.Hide();
             trainer_Manage_Gym.Show();
         }
@@ -366,7 +375,17 @@ namespace WindowsFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+            string query = "SELECT top 1 GymID FROM Gym$ WHERE GymName = @gym";
+            SqlCommand command;
+            conn.Open();
+            object result;
+            using (command = new SqlCommand(query, conn))
+            {
+                command.Parameters.AddWithValue("@gym", selectGymName());
+                result = command.ExecuteScalar();
+            }
+            gid = Convert.ToInt32(result);
         }
     }
 }

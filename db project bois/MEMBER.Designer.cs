@@ -220,6 +220,7 @@
             // 
             // comboBox2
             // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.Enabled = false;
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Standard", "Premium", "Basic" });

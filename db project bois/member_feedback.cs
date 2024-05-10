@@ -16,9 +16,9 @@ namespace Db_project_1
     public partial class member_feedback : Form
     {
         public int ID;
-        public member_feedback(int id =1)
+        public member_feedback(int id )
         {
-            ID= id;
+            ID = id;
             InitializeComponent();
 
             try
@@ -63,7 +63,7 @@ namespace Db_project_1
                 string c = textBox1.Text;
 
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT TRAINERID FROM Member_trainer where memberid = " + ID + " and Trainer_name = '" + c +"'";
+                string query = "SELECT TRAINERID FROM Member_trainer where memberid = " + ID + " and Trainer_name = '" + t + "'";
                 SqlCommand cm;
                 conn.Open();
                 object a;
@@ -76,7 +76,7 @@ namespace Db_project_1
                 cm = new SqlCommand(q1, conn);
                 b = cm.ExecuteScalar();
                 cm.Dispose();
-                if ((int)b != 0 )
+                if ((int)b != 0)
                 {
                     MessageBox.Show("Feedback already submited. ");
                     return;
@@ -105,6 +105,11 @@ namespace Db_project_1
                 this.Hide();
                 members.Show();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

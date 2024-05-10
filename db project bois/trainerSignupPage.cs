@@ -145,7 +145,7 @@ namespace db_project_bois
                 result = command.ExecuteScalar();
             }
             int gymID = Convert.ToInt32(result);
-            string query3 = "INSERT INTO Trainer_gym$ (TrainerID, GymID,  RegistrationDate) VALUES (@rowsaffected, @gymID,  GETDATE())";
+            string query3 = "INSERT INTO Trainer_gym$ (TrainerID, GymID,ApprovalStatus,  RegistrationDate) VALUES (@rowsaffected, @gymID, 'Pending',  GETDATE())";
             int rows;
             using (command = new SqlCommand(query3, conn))
             {

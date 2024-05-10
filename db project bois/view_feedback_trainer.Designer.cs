@@ -52,6 +52,7 @@
             textBox4.ScrollBars = ScrollBars.Vertical;
             textBox4.Size = new Size(452, 190);
             textBox4.TabIndex = 68;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // textBox3
             // 
@@ -62,6 +63,7 @@
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(415, 31);
             textBox3.TabIndex = 67;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label7
             // 
@@ -108,6 +110,7 @@
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(430, 31);
             textBox1.TabIndex = 71;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -171,7 +174,7 @@
             Controls.Add(label3);
             Controls.Add(button1);
             DoubleBuffered = true;
-            Icon = Icon.FromHandle((global::db_project_bois.Properties.Resources.icon).GetHicon());
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 5, 3, 5);
             Name = "view_feedback_trainer";
             StartPosition = FormStartPosition.CenterScreen;

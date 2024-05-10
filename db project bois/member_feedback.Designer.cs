@@ -82,6 +82,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(290, 26);
             comboBox1.TabIndex = 63;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // numericUpDown1
             // 

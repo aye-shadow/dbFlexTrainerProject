@@ -65,11 +65,12 @@
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 23;
             listBox1.Items.AddRange(new object[] { "Dummy Member1", "Dummy Member2", "Dummy Member3", "Dummy Member4", "Dummy Member5", "Dummy Member6", "Dummy Member7", "Dummy Member8", "Dummy Member9", "Dummy Member10", "Dummy Member11", "Dummy Member12", "Dummy Member13", "Dummy Member14", "Dummy Member15", "Dummy Member16", "Dummy Member17", "Dummy Member18", "Dummy Member19", "Dummy Member20", "Dummy Member21", "Dummy Member22", "Dummy Member23", "Dummy Member24", "Dummy Member25" });
-            listBox1.Location = new Point(290, 145);
+            listBox1.Location = new Point(251, 140);
             listBox1.Margin = new Padding(3, 4, 3, 4);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(586, 372);
             listBox1.TabIndex = 85;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -94,7 +95,7 @@
             Controls.Add(button1);
             Controls.Add(label2);
             DoubleBuffered = true;
-            Icon = Icon.FromHandle((global::db_project_bois.Properties.Resources.icon).GetHicon());
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 5, 3, 5);
             Name = "view_members_trainer";
             StartPosition = FormStartPosition.CenterScreen;

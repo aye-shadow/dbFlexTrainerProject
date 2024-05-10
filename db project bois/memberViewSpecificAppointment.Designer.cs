@@ -87,7 +87,7 @@
             monthCalendar1.MaxSelectionCount = 1;
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 99;
-            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            monthCalendar1.DateChanged += monthCalendar1_DateChanged_1;
             // 
             // comboBox1
             // 

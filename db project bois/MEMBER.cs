@@ -335,7 +335,7 @@ namespace Db_project_1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            trainerMemberManageGym trainerMemberManageGym = new trainerMemberManageGym(true);
+            trainerMemberManageGym trainerMemberManageGym = new trainerMemberManageGym(true, id);
             this.Hide();
             trainerMemberManageGym.Show();
         }
