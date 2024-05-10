@@ -13,16 +13,23 @@ namespace WindowsFormsApp1
 {
     public partial class manage_appointments_trainer : Form
     {
+<<<<<<< HEAD
         public int id;
         public string gname;
         public manage_appointments_trainer(int id, string gymname)
+=======
+        // load appointment dates from db into array
+        private List<DateTime> datesToHighlight = new List<DateTime>();
+        public int id;
+        public string gname;
+        public manage_appointments_trainer(int id =1, string gymname ="")
+>>>>>>> origin
         {
             InitializeComponent();
             loadAppointmentDate();
             this.id = id;
             gname = gymname;
         }
-
 
         private void manage_appointments_trainer_Load(object sender, EventArgs e)
         {
@@ -33,7 +40,18 @@ namespace WindowsFormsApp1
         {
             // load all appointments a trainer has from db into list
 
+<<<<<<< HEAD
             flowLayoutPanel1.Controls.Clear();
+=======
+            DateTime[] dummyDates = { new DateTime(2024, 5, 10), new DateTime(2024, 5, 15), new DateTime(2024, 5, 20), new DateTime(2024, 5, 3) };
+            
+            foreach (DateTime date in dummyDates)
+            {
+                datesToHighlight.Add(date);
+            }
+
+        }
+>>>>>>> origin
 
             string[] data =
             {

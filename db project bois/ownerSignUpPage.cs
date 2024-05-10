@@ -51,11 +51,24 @@ namespace db_project_bois
             conn.Open();
             SqlCommand command;
 
-            string query = "INSERT INTO Gym_owner$ (FirstName, LastName, Email, Contact, Password, Status, RegistrationDate) " +
-               "VALUES (@fname, @lname, @email, @contactnum, @password, 'Active', GETDATE());";
             int rowsAffected;
+            string query2 = "SELECT GymID FROM Gym$ WHERE GymName = @gym";
+            object result;
+            using (command = new SqlCommand(query2, conn))
+            {
+                command.Parameters.AddWithValue("@gym", g);
+                result = command.ExecuteScalar();
+            }
+            if (result != null) 
+            {
+                MessageBox.Show("gym is already registered. Enter another Gym name.");
+                return;
+            }
+
+            string query = "INSERT INTO Gym_owner$ (FirstName, LastName, Email, Contact, Password,  RegistrationDate, Approval) " +
+              "VALUES (@fname, @lname, @email, @contactnum, @password, GETDATE(), 'Pending');";
             using (command = new SqlCommand(query, conn))
-            {            
+            {
                 command.Parameters.AddWithValue("@fname", f);
                 command.Parameters.AddWithValue("@lname", l);
                 command.Parameters.AddWithValue("@email", m);
@@ -65,38 +78,18 @@ namespace db_project_bois
                 // Execute the query and handle the result as needed
                 rowsAffected = command.ExecuteNonQuery();
             }
-            if (rowsAffected == 1)
-            {
-                MessageBox.Show("OWNER registered successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Failed to register OWNER.");
-            }
             string query4 = "SELECT max(ID) FROM gym_owner$ ";
             object r;
             command = new SqlCommand(query4, conn);
             r = command.ExecuteScalar();
             int goID = Convert.ToInt32(r);
-            string query2 = "SELECT top 1 GymID FROM Gym$ WHERE GymName = @gym";
-            object result;
-            using (command = new SqlCommand(query2, conn))
-            {
-                command.Parameters.AddWithValue("@gym", g);
-                result = command.ExecuteScalar();
-            }
-            if (result == null) 
-            {
-                MessageBox.Show("gym already registered");
-                return;
-            }
-            string queryk = "SELECT max(ID) FROM gym$ ";
+
+            string queryk = "SELECT max(GymID) FROM gym$ ";
             command = new SqlCommand(queryk, conn);
-            result = command.ExecuteScalar();
+            result = command.ExecuteScalar();  
             
             int gID = Convert.ToInt32(result);
-            int gymID = Convert.ToInt32(result);
-            gymID += 1;
+            gID += 1;
             string query3 = "INSERT INTO Gym$ (GymID,GymOwnerID, GymName, Location, Status) " +
                  "VALUES (@id, @gymOwnerID, @gymName, @location, 'Active')";
 
@@ -108,14 +101,15 @@ namespace db_project_bois
                 command.Parameters.AddWithValue("@location", gl);
                 rowsAffected = command.ExecuteNonQuery();
             }
-            if (rowsAffected > 0)
+            if (rowsAffected == 1)
             {
-                MessageBox.Show("Gym registered successfully!");
+                MessageBox.Show("OWNER registered successfully!");
             }
             else
             {
-                MessageBox.Show("Failed to register Gym.");
+                MessageBox.Show("Failed to register OWNER.");
             }
+
             conn.Close();
         }
 

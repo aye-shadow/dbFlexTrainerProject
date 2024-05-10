@@ -152,14 +152,6 @@ namespace db_project_bois
                 command.Parameters.AddWithValue("@gymID", gymID);
                 rows = command.ExecuteNonQuery();
             }
-            if (rows > 0)
-            {
-                MessageBox.Show("Gym registered successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Failed to register Gym.");
-            }
             conn.Close();
         }
 

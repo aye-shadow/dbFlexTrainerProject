@@ -255,7 +255,13 @@ namespace WindowsFormsApp1
             // can view all appointments regardless of gym
             if (!gymSelected())
             {
+<<<<<<< HEAD
                 manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(id, comboBox1.Text);
+=======
+                string a = comboBox1.SelectedItem.ToString();
+
+                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(id, a);
+>>>>>>> origin
                 this.Hide();
                 manage_Appointments_Trainer.Show();
             }
