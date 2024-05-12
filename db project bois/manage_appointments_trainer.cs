@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Db_project_1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +16,18 @@ namespace WindowsFormsApp1
 {
     public partial class manage_appointments_trainer : Form
     {
-        public int id;
-        public string gname;
-        public manage_appointments_trainer(int id, string gymname)
+        public int id, sessionID;
+        public string gname, dateSelected;
+        bool viewOnly;
+        public manage_appointments_trainer(string gymname, int id, bool viewOnly = false, int sessionID = 0, string dateSelected = "")
         {
             InitializeComponent();
-            loadAppointmentDate();
             this.id = id;
-            gname = gymname;
+            this.gname = gymname;
+            this.sessionID = sessionID;
+            this.dateSelected = dateSelected;
+            this.viewOnly = viewOnly;
+            loadAppointmentDate();
         }
 
 
@@ -32,83 +39,69 @@ namespace WindowsFormsApp1
         private void loadAppointmentDate()
         {
             // load all appointments a trainer has from db into list
-
             flowLayoutPanel1.Controls.Clear();
 
-            string[] data =
+            string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+            string query = "SELECT [Training_session$].id, concat(firstName, ' ', LastName) as name, RequestDate from [Training_session$] join Member$ on Member$.ID = Training_session$.MemberID where [TrainerID] = @id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                "Member15, 01/01/2024",
-                "Member12, 01/28/2024",
-                "Member23, 02/11/2024",
-                "Member7, 02/21/2024",
-                "Member11, 03/09/2024",
-                "Member16, 03/20/2024",
-                "Member5, 04/12/2024",
-                "Member21, 04/26/2024",
-                "Member13, 05/16/2024",
-                "Member9, 06/14/2024",
-                "Member1, 06/23/2024",
-                "Member18, 06/29/2024",
-                "Member3, 07/08/2024",
-                "Member24, 07/22/2024",
-                "Member20, 08/15/2024",
-                "Member8, 08/19/2024",
-                "Member2, 09/17/2024",
-                "Member19, 09/25/2024",
-                "Member6, 10/05/2024",
-                "Member17, 10/10/2024",
-                "Member14, 11/07/2024",
-                "Member4, 11/20/2024",
-                "Member10, 12/03/2024",
-                "Member22, 12/18/2024"
-            };
-
-            foreach (string row in data)
-            {
-                string[] parts = row.Split(',');
-                string plan = parts[0].Trim();
-                string meals = parts[1].Trim();
-
-                Panel panel = new Panel();
-                panel.AutoSize = true;
-                panel.Dock = DockStyle.Top;
-                panel.AutoSize = true;
-
-                Label memberLabel = new Label();
-                memberLabel.Text = plan;
-                memberLabel.AutoSize = true;
-                panel.Controls.Add(memberLabel);
-
-                Label dateLabel = new Label();
-                dateLabel.Text = meals;
-                dateLabel.AutoSize = true;
-                panel.Controls.Add(dateLabel);
-
-                // if author == self then do follwoing:
-                LinkLabel viewScheduleLink = new LinkLabel();
-                viewScheduleLink.Text = "View";
-                viewScheduleLink.AutoSize = true;
-                viewScheduleLink.Click += (sender, e) =>
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    trainerAppointmentDetails editPlan = new trainerAppointmentDetails(gname, true, id, dateLabel.Text);
-                    this.Hide();
-                    editPlan.Show();
-                };
-                panel.Controls.Add(viewScheduleLink);
+                    // Add parameters   
+                    command.Parameters.AddWithValue("@id", id);
 
-                int xOffset = memberLabel.Width + 5;
-                dateLabel.Location = new Point(xOffset, 0); // Set label's location
-                xOffset += dateLabel.Width + 5;
-                viewScheduleLink.Location = new Point(xOffset, 0); // Set label's location
+                    connection.Open();
 
-                // Add the panel to the FlowLayoutPanel
-                flowLayoutPanel1.Controls.Add(panel);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Panel panel = new Panel();
+                            panel.AutoSize = true;
+                            panel.Dock = DockStyle.Top;
+                            panel.AutoSize = true;
 
-                Panel linePanel = new Panel();
-                linePanel.BackColor = Color.Black; // Set line color
-                linePanel.Height = 1; // Set line height
-                linePanel.Dock = DockStyle.Top; // Dock to top of the panels
-                flowLayoutPanel1.Controls.Add(linePanel);
+                            Label idLabel = new Label();
+                            idLabel.Text = reader["id"].ToString();
+                            idLabel.AutoSize = true;
+                            idLabel.Visible = false;
+                            panel.Controls.Add(idLabel);
+
+                            Label memberLabel = new Label();
+                            memberLabel.Text = reader["name"].ToString();
+                            memberLabel.AutoSize = true;
+                            panel.Controls.Add(memberLabel);
+
+                            Label dateLabel = new Label();
+                            dateLabel.Text = reader["RequestDate"].ToString();
+                            dateLabel.AutoSize = true;
+                            panel.Controls.Add(dateLabel);
+
+                            LinkLabel viewScheduleLink = new LinkLabel();
+                            viewScheduleLink.Text = "View";
+                            viewScheduleLink.AutoSize = true;
+                            viewScheduleLink.Click += (sender, e) =>
+                            {
+                                trainerAppointmentDetails editPlan = new trainerAppointmentDetails(gname, true, int.Parse(idLabel.Text), id, dateLabel.Text);
+                                this.Hide();
+                                editPlan.Show();
+                            };
+                            panel.Controls.Add(viewScheduleLink);
+
+                            int xOffset = memberLabel.Width + 5;
+                            dateLabel.Location = new Point(xOffset, 0); // Set label's location
+                            xOffset += dateLabel.Width + 5;
+                            viewScheduleLink.Location = new Point(xOffset, 0); // Set label's location
+                            flowLayoutPanel1.Controls.Add(panel);
+
+                            Panel linePanel = new Panel();
+                            linePanel.BackColor = Color.Black; // Set line color
+                            linePanel.Height = 1; // Set line height
+                            linePanel.Dock = DockStyle.Top; // Dock to top of the panels
+                            flowLayoutPanel1.Controls.Add(linePanel);
+                        }
+                    }
+                }
             }
         }
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -125,7 +118,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            trainerAppointmentDetails editPlan = new trainerAppointmentDetails(gname, false, id);
+            trainerAppointmentDetails editPlan = new trainerAppointmentDetails(gname, false, sessionID, id, dateSelected);
             this.Hide();
             editPlan.Show();
         }

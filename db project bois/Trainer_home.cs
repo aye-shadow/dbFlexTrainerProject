@@ -272,7 +272,7 @@ namespace WindowsFormsApp1
             {
                 string a = comboBox1.SelectedItem.ToString();
 
-                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(id, a);
+                manage_appointments_trainer manage_Appointments_Trainer = new manage_appointments_trainer(a, id);
                 this.Hide();
                 manage_Appointments_Trainer.Show();
             }
