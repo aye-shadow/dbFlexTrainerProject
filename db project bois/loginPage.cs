@@ -149,9 +149,15 @@ namespace db_project_bois
                 if (c == 0) { MessageBox.Show("invalid username or password"); return; }
                 else MessageBox.Show("Login Successfully");
                 cm.Dispose();
-                conn.Close();
+                
 
-                admin_home admin_Home = new admin_home();
+                string query4 = "SELECT ID FROM admin$ where [Email] ='" + a + "'";
+                object r;
+                cm = new SqlCommand(query4, conn);
+                r = cm.ExecuteScalar();
+                int ID = Convert.ToInt32(r);
+                conn.Close();
+                admin_home admin_Home = new admin_home(ID);
                 this.Hide();
                 admin_Home.Show();
             }

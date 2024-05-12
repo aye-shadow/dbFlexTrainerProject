@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,35 @@ namespace WindowsFormsApp1
     public partial class ownerRemoveMemberAccounts : Form
     {
         private string gymName;
-        public ownerRemoveMemberAccounts(string gymName)
+        int id, gid;
+        public ownerRemoveMemberAccounts(string gymName, int gid, int id )
         {
             InitializeComponent();
             this.gymName = gymName;
             label1.Text = "Remove Members at " + gymName;
+            this.id = id;
+            this. gid = gid;
+
+            try
+            {
+                SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                string query = "SELECT  Email from member$ join member_gym$ on member_Gym$.memberid = member$.id  where gymID = " + gid;
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                checkedListBox1.Items.Clear();
+                while (reader.Read())
+                {
+                    checkedListBox1.Items.Add(reader["Email"].ToString());
+                }
+                reader.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +57,25 @@ namespace WindowsFormsApp1
                     {
                         if (checkedListBox1.GetItemChecked(i))
                         {
+                            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+                            conn.Open();
+                            string a = checkedListBox1.Items[i].ToString();
+                            SqlCommand cm;
+                            string query4 = "SELECT ID FROM member$ where [Email] ='" + a + "'";
+                            object r;
+                            cm = new SqlCommand(query4, conn);
+                            r = cm.ExecuteScalar();
+                            int  m_id = Convert.ToInt32(r);
+
+                            string query = " UPDATE member$ Set Status = 'Banned' where Id =  " + m_id;
+                            cm = new SqlCommand(query, conn);
+                            object v = cm.ExecuteNonQuery();
+
+                            string qu= " delete from member_gym$ where memberId =  " + m_id;
+                            cm = new SqlCommand(qu, conn);
+                             v = cm.ExecuteNonQuery();
+
+                            conn.Close();
                             checkedListBox1.Items.RemoveAt(i);
                             --i;
                         }
@@ -50,7 +94,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Manage_member manage_Member = new Manage_member(gymName);
+                Manage_member manage_Member = new Manage_member(gymName, gid, id);
                 this.Hide();
                 manage_Member.Show();
             }

@@ -58,6 +58,7 @@
             lname.Size = new Size(98, 23);
             lname.TabIndex = 56;
             lname.Text = "Add New";
+            lname.Click += lname_Click;
             // 
             // label1
             // 

@@ -386,6 +386,8 @@ namespace WindowsFormsApp1
                 result = command.ExecuteScalar();
             }
             gid = Convert.ToInt32(result);
+            command.Dispose();
+            conn.Close();
         }
     }
 }

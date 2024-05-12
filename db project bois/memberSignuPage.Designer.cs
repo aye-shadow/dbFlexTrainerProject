@@ -51,6 +51,8 @@
             numericUpDown1 = new NumericUpDown();
             comboBox3 = new ComboBox();
             label1 = new Label();
+            comboBox4 = new ComboBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)yearsOfExperienceUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -74,7 +76,7 @@
             heightLabel.BackColor = Color.Transparent;
             heightLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             heightLabel.ForeColor = SystemColors.ControlLightLight;
-            heightLabel.Location = new Point(306, 259);
+            heightLabel.Location = new Point(166, 258);
             heightLabel.Name = "heightLabel";
             heightLabel.Size = new Size(100, 18);
             heightLabel.TabIndex = 45;
@@ -82,7 +84,7 @@
             // 
             // yearsOfExperienceUpDown
             // 
-            yearsOfExperienceUpDown.Location = new Point(306, 280);
+            yearsOfExperienceUpDown.Location = new Point(166, 279);
             yearsOfExperienceUpDown.Maximum = new decimal(new int[] { 250, 0, 0, 0 });
             yearsOfExperienceUpDown.Minimum = new decimal(new int[] { 120, 0, 0, 0 });
             yearsOfExperienceUpDown.Name = "yearsOfExperienceUpDown";
@@ -95,7 +97,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "ijoi", "uh", "uooh" });
-            comboBox1.Location = new Point(306, 346);
+            comboBox1.Location = new Point(301, 345);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(219, 33);
             comboBox1.TabIndex = 43;
@@ -107,7 +109,7 @@
             membershipTypeLabel.BackColor = Color.Transparent;
             membershipTypeLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             membershipTypeLabel.ForeColor = SystemColors.ControlLightLight;
-            membershipTypeLabel.Location = new Point(311, 324);
+            membershipTypeLabel.Location = new Point(306, 323);
             membershipTypeLabel.Name = "membershipTypeLabel";
             membershipTypeLabel.Size = new Size(148, 18);
             membershipTypeLabel.TabIndex = 42;
@@ -119,7 +121,7 @@
             contactLabel.BackColor = Color.Transparent;
             contactLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             contactLabel.ForeColor = SystemColors.ControlLightLight;
-            contactLabel.Location = new Point(311, 131);
+            contactLabel.Location = new Point(306, 130);
             contactLabel.Name = "contactLabel";
             contactLabel.Size = new Size(139, 18);
             contactLabel.TabIndex = 41;
@@ -128,7 +130,7 @@
             // 
             // contactTextBox
             // 
-            contactTextBox.Location = new Point(306, 154);
+            contactTextBox.Location = new Point(301, 153);
             contactTextBox.Name = "contactTextBox";
             contactTextBox.Size = new Size(219, 31);
             contactTextBox.TabIndex = 40;
@@ -140,7 +142,7 @@
             confirmPasswordLabel.BackColor = Color.Transparent;
             confirmPasswordLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             confirmPasswordLabel.ForeColor = SystemColors.ControlLightLight;
-            confirmPasswordLabel.Location = new Point(311, 194);
+            confirmPasswordLabel.Location = new Point(306, 193);
             confirmPasswordLabel.Name = "confirmPasswordLabel";
             confirmPasswordLabel.Size = new Size(153, 18);
             confirmPasswordLabel.TabIndex = 39;
@@ -148,7 +150,7 @@
             // 
             // confirmPasswordTextBox
             // 
-            confirmPasswordTextBox.Location = new Point(306, 216);
+            confirmPasswordTextBox.Location = new Point(301, 215);
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             confirmPasswordTextBox.PasswordChar = '*';
             confirmPasswordTextBox.Size = new Size(219, 31);
@@ -161,7 +163,7 @@
             passwordLabel.BackColor = Color.Transparent;
             passwordLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordLabel.ForeColor = SystemColors.ControlLightLight;
-            passwordLabel.Location = new Point(72, 194);
+            passwordLabel.Location = new Point(67, 193);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(87, 18);
             passwordLabel.TabIndex = 37;
@@ -169,7 +171,7 @@
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(67, 216);
+            passwordTextBox.Location = new Point(62, 215);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.PasswordChar = '*';
             passwordTextBox.Size = new Size(219, 31);
@@ -182,7 +184,7 @@
             emailLabel.BackColor = Color.Transparent;
             emailLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             emailLabel.ForeColor = SystemColors.ControlLightLight;
-            emailLabel.Location = new Point(72, 131);
+            emailLabel.Location = new Point(67, 130);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(51, 18);
             emailLabel.TabIndex = 35;
@@ -190,7 +192,7 @@
             // 
             // emailTextBox
             // 
-            emailTextBox.Location = new Point(67, 154);
+            emailTextBox.Location = new Point(62, 153);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(219, 31);
             emailTextBox.TabIndex = 34;
@@ -202,7 +204,7 @@
             lnameLabel.BackColor = Color.Transparent;
             lnameLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lnameLabel.ForeColor = SystemColors.ControlLightLight;
-            lnameLabel.Location = new Point(311, 69);
+            lnameLabel.Location = new Point(306, 68);
             lnameLabel.Name = "lnameLabel";
             lnameLabel.Size = new Size(93, 18);
             lnameLabel.TabIndex = 33;
@@ -210,7 +212,7 @@
             // 
             // lnameTextBox
             // 
-            lnameTextBox.Location = new Point(306, 91);
+            lnameTextBox.Location = new Point(301, 90);
             lnameTextBox.Name = "lnameTextBox";
             lnameTextBox.Size = new Size(219, 31);
             lnameTextBox.TabIndex = 32;
@@ -222,7 +224,7 @@
             fnameLabel.BackColor = Color.Transparent;
             fnameLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             fnameLabel.ForeColor = SystemColors.ControlLightLight;
-            fnameLabel.Location = new Point(72, 69);
+            fnameLabel.Location = new Point(67, 68);
             fnameLabel.Name = "fnameLabel";
             fnameLabel.Size = new Size(94, 18);
             fnameLabel.TabIndex = 31;
@@ -230,7 +232,7 @@
             // 
             // fnameTextBox
             // 
-            fnameTextBox.Location = new Point(67, 91);
+            fnameTextBox.Location = new Point(62, 90);
             fnameTextBox.Name = "fnameTextBox";
             fnameTextBox.Size = new Size(219, 31);
             fnameTextBox.TabIndex = 30;
@@ -255,7 +257,7 @@
             weightLabel.BackColor = Color.Transparent;
             weightLabel.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             weightLabel.ForeColor = SystemColors.ControlLightLight;
-            weightLabel.Location = new Point(72, 259);
+            weightLabel.Location = new Point(67, 258);
             weightLabel.Name = "weightLabel";
             weightLabel.Size = new Size(102, 18);
             weightLabel.TabIndex = 50;
@@ -263,7 +265,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(67, 280);
+            numericUpDown1.Location = new Point(62, 279);
             numericUpDown1.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 50, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -276,7 +278,7 @@
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "dd", "dfsdf", "cxc", "sdf" });
-            comboBox3.Location = new Point(67, 346);
+            comboBox3.Location = new Point(62, 345);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(219, 33);
             comboBox3.TabIndex = 52;
@@ -288,11 +290,34 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(72, 324);
+            label1.Location = new Point(67, 323);
             label1.Name = "label1";
             label1.Size = new Size(109, 18);
             label1.TabIndex = 51;
             label1.Text = "Choose Gym";
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "Maintenance ", "Bulking ", "Cutting", "" });
+            comboBox4.Location = new Point(301, 287);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(219, 33);
+            comboBox4.TabIndex = 54;
+            comboBox4.SelectedIndexChanged += comboBox4_SelectedIndexChanged_1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(306, 265);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 18);
+            label2.TabIndex = 53;
+            label2.Text = "Fitness Goal";
+            label2.Click += label2_Click;
             // 
             // memberSignup
             // 
@@ -302,6 +327,8 @@
             BackgroundImage = Properties.Resources.specificSignUpPageJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
+            Controls.Add(comboBox4);
+            Controls.Add(label2);
             Controls.Add(comboBox3);
             Controls.Add(label1);
             Controls.Add(weightLabel);
@@ -362,5 +389,7 @@
         private NumericUpDown numericUpDown1;
         private ComboBox comboBox3;
         private Label label1;
+        private ComboBox comboBox4;
+        private Label label2;
     }
 }

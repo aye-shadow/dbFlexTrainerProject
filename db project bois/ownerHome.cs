@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,8 +16,8 @@ namespace db_project_bois
 {
     public partial class ownerHome : Form
     {
-        public int id;
-        public ownerHome(int id = 1)
+        public int id , gid;
+        public ownerHome(int id )
         {
             InitializeComponent();
             textBox5.KeyPress += textBox5_KeyPressed;
@@ -25,7 +26,7 @@ namespace db_project_bois
             try
             {
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT distinct GymName FROM Gym$  where gymownerid = " + id;
+                string query = "SELECT distinct GymName FROM Gym$  where Status = 'Active' AND  gymownerid = " + id;
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -163,7 +164,7 @@ namespace db_project_bois
         {
             if (!gymSelected())
             {
-                WindowsFormsApp1.Manage_member manage_Member = new WindowsFormsApp1.Manage_member(selectGymName());
+                WindowsFormsApp1.Manage_member manage_Member = new WindowsFormsApp1.Manage_member(selectGymName(), gid , id  ) ;
                 this.Hide();
                 manage_Member.Show();
             }
@@ -177,7 +178,7 @@ namespace db_project_bois
         {
             if (!gymSelected())
             {
-                WindowsFormsApp1.manage_trainer manage_Trainer = new WindowsFormsApp1.manage_trainer(selectGymName());
+                WindowsFormsApp1.manage_trainer manage_Trainer = new WindowsFormsApp1.manage_trainer(selectGymName(), gid, id );
                 this.Hide();
                 manage_Trainer.Show();
             }
@@ -191,7 +192,7 @@ namespace db_project_bois
         {
             if (!gymSelected())
             {
-                WindowsFormsApp1.member_report member_Report = new WindowsFormsApp1.member_report(selectGymName());
+                WindowsFormsApp1.member_report member_Report = new WindowsFormsApp1.member_report(selectGymName() , gid, id );
                 this.Hide();
                 member_Report.Show();
             }
@@ -205,7 +206,7 @@ namespace db_project_bois
         {
             if (!gymSelected())
             {
-                WindowsFormsApp1.ownerTrainerReport trainer_Report = new WindowsFormsApp1.ownerTrainerReport(selectGymName());
+                WindowsFormsApp1.ownerTrainerReport trainer_Report = new WindowsFormsApp1.ownerTrainerReport(selectGymName(), gid, id );
                 this.Hide();
                 trainer_Report.Show();
             }
@@ -218,6 +219,20 @@ namespace db_project_bois
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
+            string query = "SELECT top 1 GymID FROM Gym$ WHERE GymName = @gym";
+            SqlCommand command;
+            conn.Open();
+            object result;
+            using (command = new SqlCommand(query, conn))
+            {
+                command.Parameters.AddWithValue("@gym", selectGymName());
+                result = command.ExecuteScalar();
+            }
+            gid = Convert.ToInt32(result);
+            command.Dispose();
+            conn.Close();
 
         }
 
@@ -345,14 +360,14 @@ namespace db_project_bois
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ownerManageGyms ownerManageGyms = new ownerManageGyms();
+            ownerManageGyms ownerManageGyms = new ownerManageGyms(id);
             this.Hide();
             ownerManageGyms.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ownerAndHisGyms ownerAndHisGyms = new ownerAndHisGyms();
+            ownerAndHisGyms ownerAndHisGyms = new ownerAndHisGyms(id);
             this.Hide();
             ownerAndHisGyms.Show();
         }

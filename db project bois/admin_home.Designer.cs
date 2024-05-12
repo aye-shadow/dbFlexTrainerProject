@@ -41,6 +41,8 @@
             textBox4 = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            textBox5 = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // lname
@@ -48,7 +50,7 @@
             lname.AutoSize = true;
             lname.BackColor = Color.Transparent;
             lname.Font = new Font("Arial Rounded MT Bold", 10F);
-            lname.Location = new Point(317, 189);
+            lname.Location = new Point(323, 123);
             lname.Name = "lname";
             lname.Size = new Size(73, 23);
             lname.TabIndex = 0;
@@ -59,7 +61,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Arial Rounded MT Bold", 10F);
-            label2.Location = new Point(317, 265);
+            label2.Location = new Point(323, 199);
             label2.Name = "label2";
             label2.Size = new Size(69, 23);
             label2.TabIndex = 2;
@@ -70,7 +72,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial Rounded MT Bold", 10F);
-            label3.Location = new Point(317, 338);
+            label3.Location = new Point(323, 272);
             label3.Name = "label3";
             label3.Size = new Size(113, 23);
             label3.TabIndex = 3;
@@ -157,7 +159,7 @@
             // 
             textBox1.Enabled = false;
             textBox1.Font = new Font("Arial Rounded MT Bold", 8F);
-            textBox1.Location = new Point(409, 190);
+            textBox1.Location = new Point(415, 124);
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(428, 26);
@@ -167,7 +169,7 @@
             // textBox3
             // 
             textBox3.Enabled = false;
-            textBox3.Location = new Point(406, 266);
+            textBox3.Location = new Point(412, 200);
             textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(432, 31);
@@ -177,12 +179,13 @@
             // textBox4
             // 
             textBox4.Enabled = false;
-            textBox4.Location = new Point(456, 339);
+            textBox4.Location = new Point(462, 273);
             textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
             textBox4.PasswordChar = '*';
             textBox4.Size = new Size(382, 31);
             textBox4.TabIndex = 13;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // button1
             // 
@@ -214,6 +217,26 @@
             button2.Visible = false;
             button2.Click += button2_Click;
             // 
+            // textBox5
+            // 
+            textBox5.Enabled = false;
+            textBox5.Location = new Point(472, 354);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(372, 31);
+            textBox5.TabIndex = 80;
+            textBox5.TextChanged += textBox5_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(323, 362);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 26);
+            label1.TabIndex = 79;
+            label1.Text = "Contact:";
+            // 
             // admin_home
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -222,6 +245,8 @@
             BackgroundImage = Properties.Resources.memberSpecificHomePages;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(978, 708);
+            Controls.Add(textBox5);
+            Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox4);
@@ -259,5 +284,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private TextBox textBox5;
+        private Label label1;
     }
 }

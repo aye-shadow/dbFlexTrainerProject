@@ -89,7 +89,7 @@ namespace db_project_bois
             int height = (int)yearsOfExperienceUpDown.Value;
             string gym = comboBox3.SelectedItem != null ? comboBox3.SelectedItem.ToString() : "";
             string membershipType = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : "";
-          //  string fitnessGoal = comboBox4.SelectedItem != null ? comboBox4.SelectedItem.ToString() : "";
+            string fitnessGoal = comboBox4.SelectedItem != null ? comboBox4.SelectedItem.ToString() : "";
 
             if (string.IsNullOrEmpty(m) || string.IsNullOrEmpty(f) || string.IsNullOrEmpty(l) || string.IsNullOrEmpty(c) || string.IsNullOrEmpty(p1) || string.IsNullOrEmpty(p2))
             {
@@ -103,8 +103,8 @@ namespace db_project_bois
             }
             conn.Open();
             SqlCommand command;
-            string query = "INSERT INTO Member$ (FirstName, LastName, Email, Contact, Password, Weight, Height,  RegistrationDate) " +
-                "VALUES (@fname, @lname, @email, @contactnum, @password, @weight, @height, GETDATE());";
+            string query = "INSERT INTO Member$ (FirstName, LastName, Email, Contact, Password, Weight, Height,  RegistrationDate, FitnessGoal) " +
+                "VALUES (@fname, @lname, @email, @contactnum, @password, @weight, @height, GETDATE(), @f);";
 
             using (command = new SqlCommand(query, conn))
             {
@@ -116,10 +116,10 @@ namespace db_project_bois
                 command.Parameters.AddWithValue("@password", p1);
                 command.Parameters.AddWithValue("@weight", weight);
                 command.Parameters.AddWithValue("@height", height);
-       //         command.Parameters.AddWithValue("@fitnessGoal", fitnessGoal);
+                command.Parameters.AddWithValue("@f", fitnessGoal);
                 command.Parameters.AddWithValue("@membershiptype", membershipType);
                 // Execute the query
-                 rowsAffected = command.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected == 1)
                 {
                     MessageBox.Show("Member registered successfully!");
@@ -134,22 +134,23 @@ namespace db_project_bois
             object r;
             command = new SqlCommand(query4, conn);
             r = command.ExecuteScalar();
-           int memberID = Convert.ToInt32(r);
+            int memberID = Convert.ToInt32(r);
             string query2 = "SELECT top 1 GymID FROM Gym$ WHERE GymName = @gym";
             object result;
             using (command = new SqlCommand(query2, conn))
             {
                 command.Parameters.AddWithValue("@gym", gym);
-                 result = command.ExecuteScalar();
+                result = command.ExecuteScalar();
             }
             int gymID = Convert.ToInt32(result);
-            string query3 = "INSERT INTO Member_gym$ (MemberID, GymID, MembershipType, JoinDate) VALUES (@rowsaffected, @gymID, @membershipType, GETDATE())";
+            string query3 = "INSERT INTO Member_gym$ (MemberID, GymID, MembershipType, JoinDate ) VALUES (@rowsaffected, @gymID, @membershipType, GETDATE())";
             int rows;
             using (command = new SqlCommand(query3, conn))
             {
                 command.Parameters.AddWithValue("@rowsaffected", memberID);
                 command.Parameters.AddWithValue("@membershipType", membershipType);
                 command.Parameters.AddWithValue("@gymID", gymID);
+
                 rows = command.ExecuteNonQuery();
             }
             conn.Close();
@@ -189,16 +190,26 @@ namespace db_project_bois
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
-     
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

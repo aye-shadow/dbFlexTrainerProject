@@ -90,8 +90,8 @@ namespace db_project_bois
             
             int gID = Convert.ToInt32(result);
             gID += 1;
-            string query3 = "INSERT INTO Gym$ (GymID,GymOwnerID, GymName, Location, Status) " +
-                 "VALUES (@id, @gymOwnerID, @gymName, @location, 'Active')";
+            string query3 = "INSERT INTO Gym$ (GymID,GymOwnerID, GymName, Location, Status, Approval) " +
+                 "VALUES (@id, @gymOwnerID, @gymName, @location, 'Active', 'Pending' )";
 
             using (command = new SqlCommand(query3, conn))
             {

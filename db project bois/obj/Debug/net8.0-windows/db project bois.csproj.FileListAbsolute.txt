@@ -291,3 +291,7 @@ D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\refi
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.genruntimeconfig.cache
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\ref\db project bois.dll
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.manage_trainer.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerRemoveMemberAccounts.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerTrainerReport.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerRequests.resources

@@ -96,6 +96,7 @@
             fnameTextBox.Name = "fnameTextBox";
             fnameTextBox.Size = new Size(270, 31);
             fnameTextBox.TabIndex = 112;
+            fnameTextBox.TextChanged += fnameTextBox_TextChanged;
             // 
             // textBox1
             // 
@@ -103,6 +104,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(294, 31);
             textBox1.TabIndex = 113;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
