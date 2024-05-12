@@ -121,6 +121,9 @@
     <Compile Update="trainerMemberManageGym.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="twentyReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="typeOfLogin.cs">
       <SubType>Form</SubType>
     </Compile>

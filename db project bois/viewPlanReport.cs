@@ -14,10 +14,12 @@ namespace db_project_bois
     public partial class viewPlanReport : Form
     {
         private bool memberType;
-        public viewPlanReport(bool memberType)
+        private int memberID;
+        public viewPlanReport(bool memberType, int memberID)
         {
             InitializeComponent();
             this.memberType = memberType;
+            this.memberID = memberID;
             displayMealsAndSubscribedClients();
         }
 
@@ -28,7 +30,7 @@ namespace db_project_bois
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            dietPlan memberDietplan = new dietPlan(memberType);
+            dietPlan memberDietplan = new dietPlan(memberType, memberID);
             this.Hide();
             memberDietplan.Show();
         }

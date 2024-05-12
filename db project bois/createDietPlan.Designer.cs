@@ -31,10 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(createDietPlan));
             linkLabel3 = new LinkLabel();
             linkLabel1 = new LinkLabel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             comboBox2 = new ComboBox();
             label2 = new Label();
-            comboBox1 = new ComboBox();
             textBox2 = new TextBox();
             label1 = new Label();
             panel1 = new Panel();
@@ -42,10 +40,13 @@
             radioButton1 = new RadioButton();
             label8 = new Label();
             label9 = new Label();
-            label10 = new Label();
             comboBox3 = new ComboBox();
             label3 = new Label();
+            dataGridView1 = new DataGridView();
+            comboBox1 = new ComboBox();
+            label10 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // linkLabel3
@@ -76,25 +77,13 @@
             linkLabel1.Text = "Create";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            flowLayoutPanel1.Location = new Point(338, 173);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(391, 141);
-            flowLayoutPanel1.TabIndex = 102;
-            flowLayoutPanel1.WrapContents = false;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
-            // 
             // comboBox2
             // 
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Weight Loss", "Muscle Gain", "Maintenance" });
-            comboBox2.Location = new Point(362, 99);
+            comboBox2.Location = new Point(362, 136);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(367, 26);
             comboBox2.TabIndex = 101;
@@ -104,27 +93,16 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Arial Rounded MT Bold", 8F);
-            label2.Location = new Point(258, 103);
+            label2.Location = new Point(255, 140);
             label2.Name = "label2";
             label2.Size = new Size(80, 18);
             label2.TabIndex = 100;
             label2.Text = "Purpose:";
             // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Vegeterian", "Vegan", "Pescatarian", "Paleo", "Keto " });
-            comboBox1.Location = new Point(338, 136);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(391, 26);
-            comboBox1.TabIndex = 99;
-            // 
             // textBox2
             // 
             textBox2.Font = new Font("Arial Rounded MT Bold", 8F);
-            textBox2.Location = new Point(385, 64);
+            textBox2.Location = new Point(385, 103);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(344, 26);
@@ -135,7 +113,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial Rounded MT Bold", 8F);
-            label1.Location = new Point(259, 67);
+            label1.Location = new Point(261, 106);
             label1.Name = "label1";
             label1.Size = new Size(98, 18);
             label1.TabIndex = 97;
@@ -197,17 +175,6 @@
             label9.TabIndex = 94;
             label9.Text = "Meals:";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Arial Rounded MT Bold", 8F);
-            label10.Location = new Point(258, 139);
-            label10.Name = "label10";
-            label10.Size = new Size(52, 18);
-            label10.TabIndex = 93;
-            label10.Text = "Type:";
-            // 
             // comboBox3
             // 
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -230,6 +197,38 @@
             label3.TabIndex = 103;
             label3.Text = "Portion Sizes:";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(338, 176);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(391, 136);
+            dataGridView1.TabIndex = 105;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Vegetarian", "Vegan", "Pescatarian", "Paleo", "Keto " });
+            comboBox1.Location = new Point(338, 70);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(391, 26);
+            comboBox1.TabIndex = 109;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Arial Rounded MT Bold", 8F);
+            label10.Location = new Point(261, 72);
+            label10.Name = "label10";
+            label10.Size = new Size(52, 18);
+            label10.TabIndex = 108;
+            label10.Text = "Type:";
+            // 
             // createDietPlan
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -238,18 +237,18 @@
             BackgroundImage = Properties.Resources.dietPageJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
+            Controls.Add(comboBox1);
+            Controls.Add(label10);
+            Controls.Add(dataGridView1);
             Controls.Add(comboBox3);
             Controls.Add(label3);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(comboBox2);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
             Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(label8);
             Controls.Add(label9);
-            Controls.Add(label10);
             Controls.Add(linkLabel3);
             Controls.Add(linkLabel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -258,6 +257,7 @@
             Text = "Create Plan";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -265,10 +265,8 @@
         #endregion
         private LinkLabel linkLabel3;
         private LinkLabel linkLabel1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private ComboBox comboBox2;
         private Label label2;
-        private ComboBox comboBox1;
         private TextBox textBox2;
         private Label label1;
         private Panel panel1;
@@ -276,8 +274,10 @@
         private RadioButton radioButton1;
         private Label label8;
         private Label label9;
-        private Label label10;
         private ComboBox comboBox3;
         private Label label3;
+        private DataGridView dataGridView1;
+        private ComboBox comboBox1;
+        private Label label10;
     }
 }

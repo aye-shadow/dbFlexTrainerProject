@@ -43,6 +43,7 @@
             button2 = new Button();
             textBox5 = new TextBox();
             label1 = new Label();
+            button4 = new Button();
             SuspendLayout();
             // 
             // lname
@@ -237,6 +238,20 @@
             label1.TabIndex = 79;
             label1.Text = "Contact:";
             // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(128, 102, 165);
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Arial Rounded MT Bold", 8F);
+            button4.Location = new Point(802, 13);
+            button4.Margin = new Padding(3, 4, 3, 4);
+            button4.Name = "button4";
+            button4.Size = new Size(164, 41);
+            button4.TabIndex = 81;
+            button4.Text = "VIEW REPORTS";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // admin_home
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -245,6 +260,7 @@
             BackgroundImage = Properties.Resources.memberSpecificHomePages;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(978, 708);
+            Controls.Add(button4);
             Controls.Add(textBox5);
             Controls.Add(label1);
             Controls.Add(button2);
@@ -286,5 +302,6 @@
         private System.Windows.Forms.Button button2;
         private TextBox textBox5;
         private Label label1;
+        private Button button4;
     }
 }

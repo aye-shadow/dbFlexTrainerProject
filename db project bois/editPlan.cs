@@ -14,11 +14,13 @@ namespace db_project_bois
     public partial class editPlan : Form
     {
         private bool memberType;
-        public editPlan(bool memberType)
+        private int memberID;
+        public editPlan(bool memberType, int memberID)
         {
             InitializeComponent();
             linkLabel1.Enabled = false;
             this.memberType = memberType;
+            this.memberID = memberID;
             loadMeal();
         }
 
@@ -32,7 +34,7 @@ namespace db_project_bois
 
             if (linkLabel1.Enabled == false || result == DialogResult.Yes)
             {
-                dietPlan dietplan = new dietPlan(memberType);
+                dietPlan dietplan = new dietPlan(memberType, memberID);
                 this.Hide();
                 dietplan.Show();
             }
@@ -173,7 +175,7 @@ namespace db_project_bois
                 // delete from db
 
                 MessageBox.Show("Plan deleted!");
-                dietPlan dietPlan = new dietPlan(memberType);
+                dietPlan dietPlan = new dietPlan(memberType, memberID);
                 this.Hide();
                 dietPlan.Show();
             }
@@ -187,7 +189,7 @@ namespace db_project_bois
                 // udpate existing plan in db
 
                 MessageBox.Show("Plan updated successfully!");
-                dietPlan dietPlan = new dietPlan(memberType);
+                dietPlan dietPlan = new dietPlan(memberType, memberID);
                 this.Hide();
                 dietPlan.Show();
             }

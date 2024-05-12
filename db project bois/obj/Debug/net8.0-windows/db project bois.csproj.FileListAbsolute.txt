@@ -299,3 +299,5 @@ C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerTrainerReport.resources
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerRequests.resources
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CopyComplete
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.removeTrainers.resources
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.twentyReports.resources

@@ -176,7 +176,7 @@ namespace Db_project_1
         {
             if (!gymSelected())
             {
-                manageDietPlan dietPlan = new manageDietPlan(true);
+                manageDietPlan dietPlan = new manageDietPlan(true, id);
                 this.Hide();
                 dietPlan.Show();
             }

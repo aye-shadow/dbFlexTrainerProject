@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,13 @@ namespace Db_project_1
     public partial class dietPlan : Form
     {
         private bool memberType;
-        public dietPlan(bool memberType)
+        private int memberID;
+        public dietPlan(bool memberType, int memberID)
         {
             InitializeComponent();
             linkLabel1.Enabled = false;
             this.memberType = memberType;
+            this.memberID = memberID;
             showRows();
         }
 
@@ -34,23 +37,11 @@ namespace Db_project_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (memberType == false)
-            {
-                Trainer_home trainer_Home = new Trainer_home();
-                this.Hide();
-                trainer_Home.Show();
-            }
-            else
-            {
-                Members members = new Members();
-                this.Hide();
-                members.Show();
-            }
+            manageDietPlan manageDietPlan = new manageDietPlan(memberType, memberID);
         }
         private void showRows()
         {
             flowLayoutPanel1.Controls.Clear();
-
 
             string[] data =
             {
@@ -117,7 +108,7 @@ namespace Db_project_1
                 editLink.AutoSize = true;
                 editLink.Click += (sender, e) =>
                 {
-                    editPlan editPlan = new editPlan(memberType);
+                    editPlan editPlan = new editPlan(memberType, memberID);
                     this.Hide();
                     editPlan.Show();
                 };
@@ -218,7 +209,7 @@ namespace Db_project_1
                     addPlan.Text = "View Report";
                     addPlan.Click += (sender, e) =>
                     {
-                        viewPlanReport viewPlanReport = new viewPlanReport(memberType);
+                        viewPlanReport viewPlanReport = new viewPlanReport(memberType, memberID);
                         this.Hide();
                         viewPlanReport.Show();
                     };
@@ -282,6 +273,16 @@ namespace Db_project_1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // depending on value chosen, sort values in table
+
+            // if memberType == false then it's a trainer
+            if (memberType == false)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)

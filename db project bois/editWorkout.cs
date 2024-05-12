@@ -163,9 +163,9 @@ namespace db_project_bois
                 // delete from db
 
                 MessageBox.Show("Plan deleted!");
-                dietPlan dietPlan = new dietPlan(memberType);
+                viewWorkout dietplan = new viewWorkout(memberType);
                 this.Hide();
-                dietPlan.Show();
+                dietplan.Show();
             }
         }
 
@@ -177,9 +177,9 @@ namespace db_project_bois
                 // udpate existing plan in db
 
                 MessageBox.Show("Plan updated successfully!");
-                dietPlan dietPlan = new dietPlan(memberType);
+                viewWorkout dietplan = new viewWorkout(memberType);
                 this.Hide();
-                dietPlan.Show();
+                dietplan.Show();
             }
         }
     }

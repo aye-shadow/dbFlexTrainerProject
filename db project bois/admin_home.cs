@@ -22,7 +22,7 @@ namespace db_project_bois
             InitializeComponent();
             this.id = id;
             dat();
-           
+
         }
         public void dat()
         {
@@ -80,7 +80,7 @@ namespace db_project_bois
             textBox1.Enabled = true;
             textBox3.Enabled = true;
             textBox4.Enabled = true;
-            textBox5.Enabled  = true;
+            textBox5.Enabled = true;
             linkLabel1.Enabled = false;
             linkLabel2.Enabled = false;
             linkLabel3.Enabled = false;
@@ -244,6 +244,13 @@ namespace db_project_bois
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            twentyReports twentyReports = new twentyReports("admin", id);
+            this.Hide();
+            twentyReports.Show();
         }
     }
 }

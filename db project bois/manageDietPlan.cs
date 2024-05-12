@@ -15,23 +15,25 @@ namespace WindowsFormsApp1
     public partial class manageDietPlan : Form
     {
         private bool memberType;
+        private int memberID;
         // if 1 = trainer, 0 = member
-        public manageDietPlan(bool memberType)
+        public manageDietPlan(bool memberType, int memberID)
         {
             InitializeComponent();
             this.memberType = memberType;
+            this.memberID = memberID;   
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            dietPlan dietplan = new dietPlan(memberType);
+            dietPlan dietplan = new dietPlan(memberType, memberID);
             this.Hide();
             dietplan.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            createDietPlan dietplan = new createDietPlan(memberType);
+            createDietPlan dietplan = new createDietPlan(memberType, memberID);
             this.Hide();
             dietplan.Show();
         }
@@ -45,13 +47,13 @@ namespace WindowsFormsApp1
         {
             if (memberType == false)
             {
-                Trainer_home trainer = new Trainer_home();
+                Trainer_home trainer = new Trainer_home(memberID);
                 this.Hide();
                 trainer.Show();
             }
             else
             {
-                Members members = new Members();
+                Members members = new Members(memberID);
                 this.Hide(); 
                 members.Show();
             }

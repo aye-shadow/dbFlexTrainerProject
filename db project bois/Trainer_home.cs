@@ -286,7 +286,7 @@ namespace WindowsFormsApp1
         {
             if (!gymSelected())
             {
-                manageDietPlan dietPlan = new manageDietPlan(false);
+                manageDietPlan dietPlan = new manageDietPlan(false, id);
                 this.Hide();
                 dietPlan.Show();
             }
