@@ -101,10 +101,10 @@ namespace db_project_bois
             oid = Convert.ToInt32(result);
             command.Dispose();
             //display owner information from owner
-            string q = "SELECT CONCAT(FirstName, ' ', LastName) As C FROM Gym_owner$ WHERE ID = " + id;
+            string q = "SELECT CONCAT(FirstName, ' ', LastName) As C FROM Gym_owner$ WHERE ID = " + oid;
             cm = new SqlCommand(q, conn);
-            SqlDataReader r;//= cm.ExecuteReader();
-            string n = cm.ExecuteScalar().ToString();
+            object r =  cm.ExecuteScalar().ToString();
+            string n = (string)r; 
             //r.GetOrdinal("C").ToString();
             textBox1.Text = n;
             if (string.IsNullOrEmpty(n))
@@ -112,22 +112,34 @@ namespace db_project_bois
                 MessageBox.Show("error");
             }
             cm.Dispose();
-            q = "SELECT [email] as C FROM Gym_owner$ WHERE ID = " + id;
+            q = "SELECT [email] as C FROM Gym_owner$ WHERE ID = " + oid;
             cm = new SqlCommand(q, conn);
             n = cm.ExecuteScalar().ToString();
             textBox3.Text = n;
 
             cm.Dispose();
-            q = "SELECT Contact as C FROM Gym_owner$ WHERE ID = " + id;
+            q = "SELECT Contact as C FROM Gym_owner$ WHERE ID = " + oid;
             cm = new SqlCommand(q, conn);
             n = cm.ExecuteScalar().ToString();
             textBox5.Text = n;
 
             cm.Dispose();
-            q = "select avg(stars) from member_trainer where gymid =  " + id;
+            q = "select avg(stars) from member_trainer where gymid =  " + gid;
             cm = new SqlCommand(q, conn);
             n = cm.ExecuteScalar().ToString();
             textBox4.Text = n;
+
+            cm.Dispose();
+            q = "  select count(training_session$.trainerid) from training_session$ join Trainer_gym$ on Trainer_gym$.TrainerID = Training_session$.TrainerID where GymID = "+gid +" and Training_session$.status = 'Completed'\r\n";
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox6.Text = n;
+
+            cm.Dispose();
+            q = "  SELECT COUNT(MemberID) AS JoinedThisYear FROM [flexTrainer].[dbo].[Member_gym$] WHERE YEAR(JoinDate) = YEAR(GETDATE()) and gymid = " + gid;
+            cm = new SqlCommand(q, conn);
+            n = cm.ExecuteScalar().ToString();
+            textBox2.Text = n;
 
         }
 

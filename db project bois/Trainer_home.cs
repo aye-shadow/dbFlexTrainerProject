@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             try
             {
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT GymName FROM Gym$ join trainer_gym$ on gym$.gymid = trainer_gym$.gymid where trainerid = " + id;
+                string query = "SELECT GymName FROM Gym$ join trainer_gym$ on gym$.gymid = trainer_gym$.gymid where Status ='Active' and  trainerid = " + id;
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -221,7 +221,21 @@ namespace WindowsFormsApp1
                     }
 
                     conn.Open();
-                    SqlCommand command;
+                    SqlCommand command, cm;
+                    string qry = "SELECT count(*) as column1 FROM trainer$ WHERE [Email] = '" + m + "'  and id <> " + id;
+                    cm = new SqlCommand(qry, conn);
+                    SqlDataReader d = cm.ExecuteReader();
+                    int cyui = 0;
+                    while (d.Read())
+                    {
+                        cyui = d.GetInt32(d.GetOrdinal("column1"));
+                    }
+                    d.Close();
+                    if (cyui > 0)
+                    {
+                        MessageBox.Show("Enter unique email address .");
+                        return;
+                    }
                     string query = " UPDATE trainer$ " +
                "SET FirstName = @fname, LastName = @lname, Email = @email, " +
                "  Password = @password  " +

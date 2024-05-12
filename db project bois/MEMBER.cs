@@ -25,8 +25,7 @@ namespace Db_project_1
             InitializeComponent();
             textBox5.KeyPress += textBox5_KeyPressed;
             Dat();
-            try
-            {
+         
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
                 string query = "SELECT distinct GymName FROM Gym$ join member_gym$ on gym$.gymid = member_gym$.gymid where memberid = " +id;
                 SqlCommand command = new SqlCommand(query, conn);
@@ -39,11 +38,8 @@ namespace Db_project_1
                 }
                 reader.Close();
                 conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            
+ 
         }
 
         public void Dat()
@@ -279,24 +275,30 @@ namespace Db_project_1
 
                     if (parts.Length > 0)
                     {
-                        firstName = parts[0]; // First part is the first name
-
-                        // Concatenate remaining parts (if any) to form the last name
+                        firstName = parts[0]; 
                         for (int i = 1; i < parts.Length; i++)
                         {
                             lastName += parts[i] + " ";
                         }
-
-                        lastName = lastName.Trim(); // Remove trailing whitespace
+                        lastName = lastName.Trim(); 
+                    }
+                    conn.Open();
+                    SqlCommand command, cm;
+                    string qry = "SELECT count(*) as column1 FROM member$ WHERE [Email] = '" + m + "' and id <> "+id;
+                    cm = new SqlCommand(qry, conn);
+                    SqlDataReader d = cm.ExecuteReader();
+                    int cyui = 0;
+                    while (d.Read())
+                    {
+                        cyui = d.GetInt32(d.GetOrdinal("column1"));
+                    }
+                    d.Close();
+                    if (cyui > 0)
+                    {
+                        MessageBox.Show("Enter unique email address .");
+                        return;
                     }
 
-                    // Now 'firstName' and 'lastName' contain the separated first name and last name, respectively
-
-                    // You can then use these variables to insert into the database
-
-
-                    conn.Open();
-                    SqlCommand command;
                     string query = " UPDATE Member$ " +
                "SET FirstName = @fname, LastName = @lname, Email = @email, " +
                " Contact = @contactnum, Password = @password, Weight = @weight, " +

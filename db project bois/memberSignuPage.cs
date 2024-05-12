@@ -21,7 +21,7 @@ namespace db_project_bois
             try
             {
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT GymName FROM Gym$";
+                string query = "SELECT GymName FROM Gym$ where status = 'Active' ";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -102,9 +102,25 @@ namespace db_project_bois
                 return;
             }
             conn.Open();
-            SqlCommand command;
-            string query = "INSERT INTO Member$ (FirstName, LastName, Email, Contact, Password, Weight, Height,  RegistrationDate, FitnessGoal) " +
-                "VALUES (@fname, @lname, @email, @contactnum, @password, @weight, @height, GETDATE(), @f);";
+            SqlCommand command, cm;
+
+            string qry = "SELECT count(*) as column1 FROM Member$ WHERE [Email] = '" + m + "'";
+            cm = new SqlCommand(qry, conn);
+            SqlDataReader d = cm.ExecuteReader();
+            int cyui = 0;
+            while (d.Read())
+            {
+                cyui = d.GetInt32(d.GetOrdinal("column1"));
+            }
+            d.Close();
+            if ( cyui >0 )
+            {
+                MessageBox.Show("ENter unique email address .");
+                return;
+            }
+
+            string query = "INSERT INTO Member$ (FirstName, LastName, Email, Contact, Password, Weight, Height,  RegistrationDate, FitnessGoal , Status) " +
+                "VALUES (@fname, @lname, @email, @contactnum, @password, @weight, @height, GETDATE(), @f , 'Active');";
 
             using (command = new SqlCommand(query, conn))
             {

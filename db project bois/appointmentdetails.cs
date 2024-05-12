@@ -64,7 +64,6 @@ namespace Db_project_1
             // load all appointments a trainer has from db into list
 
             flowLayoutPanel1.Controls.Clear();
-
             string[] data =
             {
                 "Trainer15, 01/01/2024",
@@ -147,6 +146,11 @@ namespace Db_project_1
             memberViewSpecificAppointment appointmentDetails = new memberViewSpecificAppointment("", false, memberID);
             this.Hide();
             appointmentDetails.Show();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

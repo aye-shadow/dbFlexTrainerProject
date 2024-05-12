@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("db project bois")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+080608607009b844fa01be1692036fa26ed5eb0e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bc6d4a2d674cabff66572f65f62d7168786ecd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("db project bois")]
 [assembly: System.Reflection.AssemblyTitleAttribute("db project bois")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

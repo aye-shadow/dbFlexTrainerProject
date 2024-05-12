@@ -23,8 +23,7 @@ namespace db_project_bois
             textBox5.KeyPress += textBox5_KeyPressed;
             this.id = id;
             Dat();
-            try
-            {
+
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
                 string query = "SELECT distinct GymName FROM Gym$  where Status = 'Active' AND  gymownerid = " + id;
                 SqlCommand command = new SqlCommand(query, conn);
@@ -37,11 +36,6 @@ namespace db_project_bois
                 }
                 reader.Close();
                 conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
         public void Dat()
         {
@@ -51,9 +45,8 @@ namespace db_project_bois
 
             string q = "SELECT CONCAT(FirstName, ' ', LastName) As C FROM Gym_owner$ WHERE ID = " + id;
             cm = new SqlCommand(q, conn);
-            SqlDataReader r;//= cm.ExecuteReader();
+            SqlDataReader r;
             string n = cm.ExecuteScalar().ToString();
-            //r.GetOrdinal("C").ToString();
             textBox1.Text = n;
             if (string.IsNullOrEmpty(n))
             {
@@ -280,6 +273,7 @@ namespace db_project_bois
                 else
                 {
                     // email is also valid
+
                     SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
                     string m = textBox3.Text;
                     string f = textBox1.Text;
@@ -287,6 +281,22 @@ namespace db_project_bois
                     string c = textBox5.Text;
                     string p1 = textBox4.Text;
                     string fullName = f.Trim();
+                    SqlCommand command, cm;
+                    conn.Open();
+                    string qry = "SELECT count(*) as column1 FROM Gym_owner$ WHERE [Email] = '" + m + "'  and id <> "+id;
+                    cm = new SqlCommand(qry, conn);
+                    SqlDataReader d = cm.ExecuteReader();
+                    int cyui = 0;
+                    while (d.Read())
+                    {
+                        cyui = d.GetInt32(d.GetOrdinal("column1"));
+                    }
+                    d.Close();
+                    if (cyui > 0)
+                    {
+                        MessageBox.Show("Enter unique email address .");
+                        return;
+                    }
 
                     string[] parts = fullName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     string firstName = "";
@@ -308,8 +318,7 @@ namespace db_project_bois
                     // Now 'firstName' and 'lastName' contain the separated first name and last name, respectively
 
                     // You can then use these variables to insert into the database
-                    conn.Open();
-                    SqlCommand command;
+                    
                     string query = " UPDATE gym_owner$ " +
                "SET FirstName = @fname, LastName = @lname, Email = @email, " +
                " Contact = @contactnum, Password = @password  " +

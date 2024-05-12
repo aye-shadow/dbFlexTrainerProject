@@ -49,10 +49,25 @@ namespace db_project_bois
                 return;
             }
             conn.Open();
-            SqlCommand command;
+            SqlCommand command, cm;
+
+            string qry = "SELECT count(*) as column1 FROM Gym_owner$ WHERE [Email] = '" + m + "'";
+            cm = new SqlCommand(qry, conn);
+            SqlDataReader d = cm.ExecuteReader();
+            int cyui = 0;
+            while (d.Read())
+            {
+                cyui = d.GetInt32(d.GetOrdinal("column1"));
+            }
+            d.Close();
+            if (cyui > 0)
+            {
+                MessageBox.Show("Enter unique email address .");
+                return;
+            }
 
             int rowsAffected;
-            string query2 = "SELECT GymID FROM Gym$ WHERE GymName = @gym";
+            string query2 = "SELECT Status FROM Gym$ WHERE GymName = @gym";
             object result;
             using (command = new SqlCommand(query2, conn))
             {
@@ -61,12 +76,57 @@ namespace db_project_bois
             }
             if (result != null) 
             {
-                MessageBox.Show("gym is already registered. Enter another Gym name.");
-                return;
+                if((string)result == "Active")  
+              {  MessageBox.Show("gym is already registered. Enter another Gym name.");
+                    return;
+                }
+                else
+                {
+                    string qury = "INSERT INTO Gym_owner$ (FirstName, LastName, Email, Contact, Password,  RegistrationDate, Approval) " +
+             "VALUES (@fname, @lname, @email, @contactnum, @password, GETDATE(), 'Pending');";
+                    using (command = new SqlCommand(qury, conn))
+                    {
+                        command.Parameters.AddWithValue("@fname", f);
+                        command.Parameters.AddWithValue("@lname", l);
+                        command.Parameters.AddWithValue("@email", m);
+                        command.Parameters.AddWithValue("@contactnum", c);
+                        command.Parameters.AddWithValue("@password", p1);
+
+                        // Execute the query and handle the result as needed
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    string qury4 = "SELECT max(ID) FROM gym_owner$ ";
+                    object rk;
+                    command = new SqlCommand(qury4, conn);
+                    rk = command.ExecuteScalar();
+                    int id = Convert.ToInt32(rk);
+
+                    query2 = "Update gym$ set status = 'Active', Approval = 'Pending' , Location = @gl, Gymownerid = @id where gymname = @gym";
+                    using (command = new SqlCommand(query2, conn))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@gl", gl);
+                        command.Parameters.AddWithValue("@gym", g);
+                        result = command.ExecuteNonQuery();
+                        if ((int)result >= 1)
+                        {
+                            MessageBox.Show("Gym registration to an existing gym!");
+                            ownerAndHisGyms ownerAndHisGyms = new ownerAndHisGyms(id);
+                            this.Hide();
+                            ownerAndHisGyms.Show();
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to register gym.");
+                            return;
+                        }
+                    }
+                }
             }
 
-            string query = "INSERT INTO Gym_owner$ (FirstName, LastName, Email, Contact, Password,  RegistrationDate, Approval) " +
-              "VALUES (@fname, @lname, @email, @contactnum, @password, GETDATE(), 'Pending');";
+            string query = "INSERT INTO Gym_owner$ (FirstName, LastName, Email, Contact, Password,  RegistrationDate) " +
+              "VALUES (@fname, @lname, @email, @contactnum, @password, GETDATE());";
             using (command = new SqlCommand(query, conn))
             {
                 command.Parameters.AddWithValue("@fname", f);

@@ -301,3 +301,5 @@ C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CopyComplete
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.removeTrainers.resources
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.twentyReports.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.removeTrainers.resources
+D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db_project_bois.twentyReports.resources

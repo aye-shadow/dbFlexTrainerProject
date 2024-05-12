@@ -3,19 +3,31 @@
   "WorkspaceRootPath": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|d:\\semester 4\\dbflextrainerproject\\db project bois\\twentyreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:twentyreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|d:\\semester 4\\dbflextrainerproject\\db project bois\\twentyreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:twentyreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\admingymreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:admingymreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|d:\\semester 4\\dbflextrainerproject\\db project bois\\memberviewspecificappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:memberviewspecificappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|d:\\semester 4\\dbflextrainerproject\\db project bois\\memberviewspecificappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\memberviewspecificappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:memberviewspecificappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|d:\\semester 4\\dbflextrainerproject\\db project bois\\trainerappointmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\trainerappointmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:trainerappointmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|d:\\semester 4\\dbflextrainerproject\\db project bois\\owneraddnewgym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\owneraddnewgym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:owneraddnewgym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -182,10 +194,6 @@
       "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:admin_home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\admingymreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:admingymreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{84A9DB77-D707-47DB-A273-599004846740}|db project bois.csproj|solutionrelative:member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -197,7 +205,7 @@
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 115,
+      "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -205,7 +213,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ownerHome.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerHome.cs",
               "RelativeDocumentMoniker": "ownerHome.cs",
@@ -218,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "ownerHome.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerHome.cs",
               "RelativeDocumentMoniker": "ownerHome.cs",
@@ -230,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "ownerAddNewGym.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerAddNewGym.cs",
               "RelativeDocumentMoniker": "ownerAddNewGym.cs",
@@ -238,12 +246,11 @@
               "RelativeToolTip": "ownerAddNewGym.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T02:42:26.383Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "ownerDeleteExistingGym.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerDeleteExistingGym.cs",
               "RelativeDocumentMoniker": "ownerDeleteExistingGym.cs",
@@ -255,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ownerDeleteExistingGym.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerDeleteExistingGym.cs",
               "RelativeDocumentMoniker": "ownerDeleteExistingGym.cs",
@@ -268,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "ownerSignUpPage.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerSignUpPage.cs",
               "RelativeDocumentMoniker": "ownerSignUpPage.cs",
@@ -281,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ownerAddNewGym.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerAddNewGym.cs",
               "RelativeDocumentMoniker": "ownerAddNewGym.cs",
@@ -290,12 +297,36 @@
               "ViewState": "AQIAACMAAAAAAAAAAAAswDUAAABcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-11T12:40:56.136Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "twentyReports.cs",
+              "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\twentyReports.cs",
+              "RelativeDocumentMoniker": "twentyReports.cs",
+              "ToolTip": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\twentyReports.cs",
+              "RelativeToolTip": "twentyReports.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAuwJQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T16:20:50.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "twentyReports.cs [Design]",
+              "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\twentyReports.cs",
+              "RelativeDocumentMoniker": "twentyReports.cs",
+              "ToolTip": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\twentyReports.cs [Design]",
+              "RelativeToolTip": "twentyReports.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T16:20:44.406Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "memberViewSpecificAppointment.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\memberViewSpecificAppointment.cs",
               "RelativeDocumentMoniker": "memberViewSpecificAppointment.cs",
@@ -307,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "memberViewSpecificAppointment.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\memberViewSpecificAppointment.cs",
               "RelativeDocumentMoniker": "memberViewSpecificAppointment.cs",
@@ -315,24 +346,22 @@
               "RelativeToolTip": "memberViewSpecificAppointment.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T04:59:43.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-12T04:59:43.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "trainerAppointmentDetails.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\trainerAppointmentDetails.cs",
               "RelativeDocumentMoniker": "trainerAppointmentDetails.cs",
               "ToolTip": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\trainerAppointmentDetails.cs [Design]",
               "RelativeToolTip": "trainerAppointmentDetails.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T04:59:23.728Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-05-12T04:59:23.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "removeGyms.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\removeGyms.cs",
               "RelativeDocumentMoniker": "removeGyms.cs",
@@ -344,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "removeGyms.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\removeGyms.cs",
               "RelativeDocumentMoniker": "removeGyms.cs",
@@ -355,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "ownerSignUpPage.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerSignUpPage.cs",
               "RelativeDocumentMoniker": "ownerSignUpPage.cs",
@@ -366,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -376,7 +405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Trainer_home.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\Trainer_home.cs",
               "RelativeDocumentMoniker": "Trainer_home.cs",
@@ -387,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "ownerTrainerReport.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerTrainerReport.cs",
               "RelativeDocumentMoniker": "ownerTrainerReport.cs",
@@ -398,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "ownerTrainerReport.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerTrainerReport.cs",
               "RelativeDocumentMoniker": "ownerTrainerReport.cs",
@@ -410,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "member_report.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\member_report.cs",
               "RelativeDocumentMoniker": "member_report.cs",
@@ -422,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "member_report.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\member_report.cs",
               "RelativeDocumentMoniker": "member_report.cs",
@@ -433,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "removeTrainers.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\removeTrainers.cs",
               "RelativeDocumentMoniker": "removeTrainers.cs",
@@ -445,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "trainerRequests.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\trainerRequests.cs",
               "RelativeDocumentMoniker": "trainerRequests.cs",
@@ -458,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "trainerRequests.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\trainerRequests.cs",
               "RelativeDocumentMoniker": "trainerRequests.cs",
@@ -470,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "manage_trainer.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\manage_trainer.cs",
               "RelativeDocumentMoniker": "manage_trainer.cs",
@@ -482,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "manage_trainer.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\manage_trainer.cs",
               "RelativeDocumentMoniker": "manage_trainer.cs",
@@ -493,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "ownerViewAllMembers.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerViewAllMembers.cs",
               "RelativeDocumentMoniker": "ownerViewAllMembers.cs",
@@ -504,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "ownerViewAllMembers.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerViewAllMembers.cs",
               "RelativeDocumentMoniker": "ownerViewAllMembers.cs",
@@ -516,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "addGym.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\addGym.cs",
               "RelativeDocumentMoniker": "addGym.cs",
@@ -528,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "ownerRemoveMemberAccounts.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerRemoveMemberAccounts.cs",
               "RelativeDocumentMoniker": "ownerRemoveMemberAccounts.cs",
@@ -540,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "ownerRemoveMemberAccounts.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerRemoveMemberAccounts.cs",
               "RelativeDocumentMoniker": "ownerRemoveMemberAccounts.cs",
@@ -551,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "manage_member.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\manage_member.cs",
               "RelativeDocumentMoniker": "manage_member.cs",
@@ -562,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "manage_member.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\manage_member.cs",
               "RelativeDocumentMoniker": "manage_member.cs",
@@ -574,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "ownerManageGyms.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerManageGyms.cs",
               "RelativeDocumentMoniker": "ownerManageGyms.cs",
@@ -585,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "ownerManageGyms.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerManageGyms.cs",
               "RelativeDocumentMoniker": "ownerManageGyms.cs",
@@ -597,7 +626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "memberSignuPage.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\memberSignuPage.cs",
               "RelativeDocumentMoniker": "memberSignuPage.cs",
@@ -608,7 +637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "member_feedback.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\member_feedback.cs",
               "RelativeDocumentMoniker": "member_feedback.cs",
@@ -620,7 +649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "Trainer_home.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\Trainer_home.cs",
               "RelativeDocumentMoniker": "Trainer_home.cs",
@@ -632,7 +661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "loginPage.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\loginPage.cs",
               "RelativeDocumentMoniker": "loginPage.cs",
@@ -640,23 +669,25 @@
               "RelativeToolTip": "loginPage.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAAAH4AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T07:48:23.673Z"
+              "WhenOpened": "2024-05-11T07:48:23.673Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 2,
               "Title": "adminGymReport.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\adminGymReport.cs",
               "RelativeDocumentMoniker": "adminGymReport.cs",
               "ToolTip": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\adminGymReport.cs",
               "RelativeToolTip": "adminGymReport.cs",
-              "ViewState": "AQIAAGwAAAAAAAAAAAArwJYAAAAAAAAA",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAuwJYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T07:43:09.405Z"
+              "WhenOpened": "2024-05-11T07:43:09.405Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "viewGyms.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\viewGyms.cs",
               "RelativeDocumentMoniker": "viewGyms.cs",
@@ -668,18 +699,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "adminGymReport.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\adminGymReport.cs",
               "RelativeDocumentMoniker": "adminGymReport.cs",
               "ToolTip": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\adminGymReport.cs [Design]",
               "RelativeToolTip": "adminGymReport.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T07:42:16.926Z"
+              "WhenOpened": "2024-05-11T07:42:16.926Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "MEMBER.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\MEMBER.cs",
               "RelativeDocumentMoniker": "MEMBER.cs",
@@ -690,7 +722,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "ownerAndHisGyms.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerAndHisGyms.cs",
               "RelativeDocumentMoniker": "ownerAndHisGyms.cs",
@@ -701,7 +733,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "ownerAndHisGyms.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\ownerAndHisGyms.cs",
               "RelativeDocumentMoniker": "ownerAndHisGyms.cs",
@@ -713,7 +745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "admin_home.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\admin_home.cs",
               "RelativeDocumentMoniker": "admin_home.cs",
@@ -725,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "admin_home.cs [Design]",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\admin_home.cs",
               "RelativeDocumentMoniker": "admin_home.cs",
@@ -736,7 +768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "MEMBER.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\MEMBER.cs",
               "RelativeDocumentMoniker": "MEMBER.cs",
@@ -748,7 +780,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "memberSignuPage.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\memberSignuPage.cs",
               "RelativeDocumentMoniker": "memberSignuPage.cs",
@@ -760,7 +792,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\SEMESTER 4\\dbFlexTrainerProject\\db project bois\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",

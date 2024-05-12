@@ -71,6 +71,7 @@
             flowLayoutPanel1.Size = new Size(455, 176);
             flowLayoutPanel1.TabIndex = 65;
             flowLayoutPanel1.WrapContents = false;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // appointmentdetails
             // 

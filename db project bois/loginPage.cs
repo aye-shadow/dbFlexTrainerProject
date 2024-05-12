@@ -60,7 +60,7 @@ namespace db_project_bois
 
             if (memberType == "member")
             {
-                string query = "SELECT count(*) as column1 FROM Member$ WHERE [Email] = '" + a + "' AND [PASSWORD] = '" + b + "'";
+                string query = "SELECT count(*) as column1 FROM Member$ WHERE [Email] = '" + a + "' AND status = 'Active' And  [PASSWORD] = '" + b + "'";
                 cm = new SqlCommand(query, conn);
                 SqlDataReader d = cm.ExecuteReader();
                 int c = 0;

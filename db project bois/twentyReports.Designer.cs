@@ -67,6 +67,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(476, 209);
             dataGridView1.TabIndex = 20;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // twentyReports
             // 

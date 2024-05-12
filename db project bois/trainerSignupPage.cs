@@ -18,10 +18,8 @@ namespace db_project_bois
         {
             InitializeComponent();
 
-            try
-            {
                 SqlConnection conn = new SqlConnection("Data Source=DESKTOP-TG8CNLH\\SQLEXPRESS;Initial Catalog=flexTrainer;Integrated Security=True");
-                string query = "SELECT distinct GymName FROM Gym$";
+                string query = "SELECT distinct GymName FROM Gym$ where status = 'Active' ";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -32,11 +30,6 @@ namespace db_project_bois
                 }
                 reader.Close();
                 conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
 
         private void memberSignup_Load(object sender, EventArgs e)
@@ -106,7 +99,22 @@ namespace db_project_bois
                 return;
             }
             conn.Open();
-            SqlCommand command;
+            SqlCommand command, cm;
+
+            string qry = "SELECT count(*) as column1 FROM trainer$ WHERE [Email] = '" + m + "'";
+            cm = new SqlCommand(qry, conn);
+            SqlDataReader d = cm.ExecuteReader();
+            int cyui = 0;
+            while (d.Read())
+            {
+                cyui = d.GetInt32(d.GetOrdinal("column1"));
+            }
+            d.Close();
+            if (cyui > 0)
+            {
+                MessageBox.Show("ENter unique email address .");
+                return;
+            }
 
             string query = "INSERT INTO Trainer$ (FirstName, LastName, Email, Contact, Password, Specialties, Experience, JoinDate) " +
                "VALUES (@fname, @lname, @email, @contactnum, @password, @specialties, @experience, GETDATE() );";
@@ -130,7 +138,6 @@ namespace db_project_bois
                 {
                     MessageBox.Show("Failed to register TRAINER.");
                 }
-
             }
             string query4 = "SELECT max(ID) FROM Trainer$ ";
             object r;
