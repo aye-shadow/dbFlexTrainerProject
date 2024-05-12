@@ -43,8 +43,9 @@
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             label2 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -163,7 +164,7 @@
             // textBox2
             // 
             textBox2.Font = new Font("Arial Rounded MT Bold", 8F);
-            textBox2.Location = new Point(383, 83);
+            textBox2.Location = new Point(383, 80);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(344, 26);
@@ -187,7 +188,8 @@
             comboBox1.Enabled = false;
             comboBox1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(336, 151);
+            comboBox1.Items.AddRange(new object[] { "Vegan", "Vegetarian", "Keto", "Paleo", "Pescatarian" });
+            comboBox1.Location = new Point(336, 152);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(391, 26);
             comboBox1.TabIndex = 85;
@@ -197,7 +199,8 @@
             comboBox2.Enabled = false;
             comboBox2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(360, 114);
+            comboBox2.Items.AddRange(new object[] { "Maintenance", "Muscle Gain", "Weight Loss" });
+            comboBox2.Location = new Point(360, 116);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(367, 26);
             comboBox2.TabIndex = 87;
@@ -213,17 +216,14 @@
             label2.TabIndex = 86;
             label2.Text = "Purpose:";
             // 
-            // flowLayoutPanel1
+            // dataGridView1
             // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            flowLayoutPanel1.Location = new Point(336, 189);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(391, 141);
-            flowLayoutPanel1.TabIndex = 88;
-            flowLayoutPanel1.WrapContents = false;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(336, 189);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(391, 136);
+            dataGridView1.TabIndex = 106;
             // 
             // editPlan
             // 
@@ -233,7 +233,7 @@
             BackgroundImage = Properties.Resources.dietPageJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(dataGridView1);
             Controls.Add(comboBox2);
             Controls.Add(label2);
             Controls.Add(comboBox1);
@@ -253,6 +253,7 @@
             Load += editPlan_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,6 +274,6 @@
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private Label label2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private DataGridView dataGridView1;
     }
 }

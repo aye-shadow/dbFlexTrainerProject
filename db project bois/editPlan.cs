@@ -3,24 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace db_project_bois
 {
     public partial class editPlan : Form
     {
         private bool memberType;
-        private int memberID;
-        public editPlan(bool memberType, int memberID)
+        private int memberID, planID;
+        public editPlan(bool memberType, int memberID, int planID)
         {
             InitializeComponent();
             linkLabel1.Enabled = false;
             this.memberType = memberType;
             this.memberID = memberID;
+            this.planID = planID;
+            dataGridView1.DefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 8);
+            dataGridView1.AllowUserToAddRows = false;
             loadMeal();
         }
 
@@ -40,100 +45,95 @@ namespace db_project_bois
             }
         }
 
+        private void AddCheckBoxColumn()
+        {
+            DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+            comboBoxColumn.HeaderText = "Type";
+            comboBoxColumn.Name = "comboBoxColumn";
+            comboBoxColumn.Items.AddRange("", "Breakfast", "Lunch", "Dinner");
+            dataGridView1.Columns.Insert(0, comboBoxColumn);
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                if (column.Name == "comboBoxColumn") // Assuming the name of the CheckBox column is "checkBoxColumn"
+                {
+                    column.ReadOnly = false;
+                }
+                else
+                {
+                    column.ReadOnly = true;
+                }
+                column.Resizable = DataGridViewTriState.False;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
+
         private void loadMeal()
         {
-            string[] data =
+            string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+            string query = "SELECT planName, purpose, type, ShareStatus FROM [Dietplan$] WHERE [Dietplan$].ID = @planID", mealType = "";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                "Meal1, Carbs1, Protein1, Fats1",
-                "Meal2, Carbs2, Protein2, Fats2",
-                "Meal3, Carbs3, Protein3, Fats3",
-                "Meal4, Carbs4, Protein4, Fats4",
-                "Meal5, Carbs5, Protein5, Fats5",
-                "Meal6, Carbs6, Protein6, Fats6",
-                "Meal7, Carbs7, Protein7, Fats7",
-                "Meal8, Carbs8, Protein8, Fats8",
-                "Meal9, Carbs9, Protein9, Fats9",
-                "Meal10, Carbs10, Protein10, Fats10",
-                "Meal11, Carbs11, Protein11, Fats11",
-                "Meal12, Carbs12, Protein12, Fats12",
-                "Meal13, Carbs13, Protein13, Fats13",
-                "Meal14, Carbs14, Protein14, Fats14",
-                "Meal15, Carbs15, Protein15, Fats15",
-                "Meal16, Carbs16, Protein16, Fats16",
-                "Meal17, Carbs17, Protein17, Fats17",
-                "Meal18, Carbs18, Protein18, Fats18",
-                "Meal19, Carbs19, Protein19, Fats19",
-                "Meal20, Carbs20, Protein20, Fats20",
-                "Meal21, Carbs21, Protein21, Fats21",
-                "Meal22, Carbs22, Protein22, Fats22",
-                "Meal23, Carbs23, Protein23, Fats23",
-                "Meal24, Carbs24, Protein24, Fats24",
-                "Meal25, Carbs25, Protein25, Fats25"
-            };
-
-            foreach (string row in data)
-            {
-                string[] parts = row.Split(',');
-                string meal = parts[0].Trim();
-                string carbs = parts[1].Trim();
-                string protein = parts[2].Trim();
-                string fats = parts[3].Trim();
-
-                Panel panel = new Panel();
-                panel.AutoSize = true;
-                panel.Dock = DockStyle.Top;
-                panel.AutoSize = true;
-
-                Label mealLabel = new Label();
-                mealLabel.Text = meal;
-                mealLabel.AutoSize = true;
-                panel.Controls.Add(mealLabel);
-
-                Label carbsLabel = new Label();
-                carbsLabel.Text = carbs;
-                carbsLabel.AutoSize = true;
-                panel.Controls.Add(carbsLabel);
-
-                Label proteinLabel = new Label();
-                proteinLabel.Text = protein;
-                proteinLabel.AutoSize = true;
-                panel.Controls.Add(proteinLabel);
-
-                Label fatsLabel = new Label();
-                fatsLabel.Text = fats;
-                fatsLabel.AutoSize = true;
-                panel.Controls.Add(fatsLabel);
-
-                CheckBox subPlan = new CheckBox();
-                // if meal already in plan
-                // subPlan.Checked = true;
-                subPlan.Text = "Add";
-                subPlan.AutoSize = true;
-                if (linkLabel1.Enabled == false)
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    subPlan.CheckedChanged += (sender, e) =>
+                    command.Parameters.AddWithValue("@planID", planID);
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        linkLabel1.Enabled = true;
-                    };
+                        if (reader.Read()) // Check if there is a row returned
+                        {
+                            textBox2.Text = reader["planName"].ToString();
+                            int index = comboBox2.FindStringExact(reader["purpose"].ToString());
+                            if (index != -1)
+                            {
+                                comboBox2.SelectedIndex = index;
+                            }
+                            mealType = reader["type"].ToString();
+                            index = comboBox1.FindStringExact(mealType);
+                            if (index != -1)
+                            {
+                                comboBox1.SelectedIndex = index;
+                            }
+                            if (reader["ShareStatus"].ToString() == "Public")
+                            {
+                                radioButton2.Checked = true;
+                            }
+                            else
+                            {
+                                radioButton1.Checked = true;
+                            }
+                        }
+                    }
                 }
-                panel.Controls.Add(subPlan);
+            }
 
-                int xOffset = mealLabel.Width + 5;
-                carbsLabel.Location = new Point(xOffset, 0); // Set label's location
-                xOffset += carbsLabel.Width + 5;
-                proteinLabel.Location = new Point(xOffset, 0); // Set label's location
-                xOffset += proteinLabel.Width + 5;
-                fatsLabel.Location = new Point(xOffset, 0);
-                xOffset += proteinLabel.Width + 5;
-                subPlan.Location = new Point(xOffset, 0);
+            query = "select id as ID, name as Meal, protein as [Protein(g)], carbs as [Carbs(g)], fats as [Fats(g)], fibre as [Fibre(g)], calories as [Calories(kcal)] from meal$ where type like @mealType;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@mealType", mealType);
 
-                flowLayoutPanel1.Controls.Add(panel);
+                    connection.Open();
 
-                Panel linePanel = new Panel();
-                linePanel.BackColor = Color.Black; // Set line color
-                linePanel.Height = 1; // Set line height
-                linePanel.Dock = DockStyle.Top; // Dock to top of the panel
-                flowLayoutPanel1.Controls.Add(linePanel);
+                    DataTable dataTable = new DataTable();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+
+                    dataGridView1.DataSource = dataTable;
+
+                    AddCheckBoxColumn();
+
+                    foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    {
+                        column.Resizable = DataGridViewTriState.False;
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    }
+                }
             }
         }
 
@@ -172,7 +172,18 @@ namespace db_project_bois
             DialogResult result = MessageBox.Show("Are you sure you want to delete this plan?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                // delete from db
+                string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+                string query = "delete from Dietplan$ where ID = @planID; delete from Ditplan_meals$ where DietPlanID = @planID; delete from Diet_plan_followers$ where DietPlanID = @planID;";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@planID", planID);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
 
                 MessageBox.Show("Plan deleted!");
                 dietPlan dietPlan = new dietPlan(memberType, memberID);
@@ -181,17 +192,148 @@ namespace db_project_bois
             }
         }
 
+        private bool ifNoneEmpty()
+        {
+            if (!string.IsNullOrEmpty(textBox2.Text) && comboBox1.SelectedIndex != -1 && comboBox2.SelectedIndex != -1 && (radioButton1.Checked || radioButton2.Checked) && AreExactlyThreeComboBoxesSelected())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool AreAllMealTypesSelected()
+        {
+            bool breakfastSelected = false;
+            bool lunchSelected = false;
+            bool dinnerSelected = false;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewComboBoxCell comboBoxCell = row.Cells["comboBoxColumn"] as DataGridViewComboBoxCell;
+                if (comboBoxCell != null && comboBoxCell.Value != null)
+                {
+                    string selectedMeal = comboBoxCell.Value.ToString();
+                    if (selectedMeal == "Breakfast")
+                    {
+                        breakfastSelected = true;
+                    }
+                    else if (selectedMeal == "Lunch")
+                    {
+                        lunchSelected = true;
+                    }
+                    else if (selectedMeal == "Dinner")
+                    {
+                        dinnerSelected = true;
+                    }
+                }
+            }
+
+            // Check if all three meal types are selected
+            return breakfastSelected && lunchSelected && dinnerSelected;
+        }
+        private bool AreExactlyThreeComboBoxesSelected()
+        {
+            int selectedCount = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewComboBoxCell comboBoxCell = row.Cells["comboBoxColumn"] as DataGridViewComboBoxCell;
+                if (comboBoxCell != null && comboBoxCell.Value != null)
+                {
+                    selectedCount++;
+                    if (selectedCount > 3)
+                    {
+                        return false; // More than three ComboBoxes have selected items
+                    }
+                }
+            }
+            return selectedCount == 3; // Exactly three ComboBoxes have selected items
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DialogResult result = MessageBox.Show("Update current plan?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                // udpate existing plan in db
+                if (ifNoneEmpty())
+                {
+                    if (!AreAllMealTypesSelected())
+                    {
+                        MessageBox.Show("Please select all 3 meal types!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        string planName = textBox2.Text, shareStatus = "";
+                        if (radioButton1.Checked)
+                        {
+                            shareStatus = radioButton1.Text;
+                        }
+                        else if (radioButton2.Checked)
+                        {
+                            shareStatus = radioButton2.Text;
+                        }
 
-                MessageBox.Show("Plan updated successfully!");
-                dietPlan dietPlan = new dietPlan(memberType, memberID);
-                this.Hide();
-                dietPlan.Show();
+                        string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;";
+                        string query = "update Dietplan$ set planName = @planName, ShareStatus = @shareStatus where id = @planID;";
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@planID", planID);
+                                command.Parameters.AddWithValue("@planName", planName);
+                                command.Parameters.AddWithValue("@shareStatus", shareStatus);
+
+                                connection.Open();
+                                command.ExecuteNonQuery();
+                            }
+                        }
+
+                        query = "delete from Ditplan_meals$ where DietPlanID = @planID;";
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@planID", planID);
+
+                                connection.Open();
+                                command.ExecuteNonQuery();
+                            }
+                        }
+
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            DataGridViewComboBoxCell comboBoxCell = row.Cells["comboBoxColumn"] as DataGridViewComboBoxCell;
+
+                            if (comboBoxCell != null && comboBoxCell.Value != null)
+                            {
+                                string typeMeal = comboBoxCell.Value.ToString();
+                                int id = Convert.ToInt32(row.Cells["ID"].Value); // Assuming the ID is in a column named "ID"
+                                query = "INSERT INTO [Ditplan_meals$] VALUES (@planID, @id, @typeMeal)";
+                                using (SqlConnection connection = new SqlConnection(connectionString))
+                                {
+                                    using (SqlCommand command = new SqlCommand(query, connection))
+                                    {
+                                        command.Parameters.AddWithValue("@planID", planID);
+                                        command.Parameters.AddWithValue("@id", id);
+                                        command.Parameters.AddWithValue("@typeMeal", typeMeal);
+
+                                        connection.Open();
+                                        command.ExecuteNonQuery();
+                                    }
+                                }
+
+                            }
+                        }
+
+                        MessageBox.Show("Plan updated successfully!");
+                        dietPlan dietPlan = new dietPlan(memberType, memberID);
+                        this.Hide();
+                        dietPlan.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Fields cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

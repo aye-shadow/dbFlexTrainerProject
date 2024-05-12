@@ -32,9 +32,10 @@
             button1 = new Button();
             linkLabel1 = new LinkLabel();
             linkLabel3 = new LinkLabel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             comboBox1 = new ComboBox();
             label2 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -79,17 +80,6 @@
             linkLabel3.Text = "Shared Plans";
             linkLabel3.LinkClicked += linkLabel3_LinkClicked;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(244, 101);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(497, 282);
-            flowLayoutPanel1.TabIndex = 28;
-            flowLayoutPanel1.WrapContents = false;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
-            // 
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -112,7 +102,15 @@
             label2.Size = new Size(70, 18);
             label2.TabIndex = 105;
             label2.Text = "Sort by:";
-            label2.Click += label2_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(245, 109);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(496, 275);
+            dataGridView1.TabIndex = 106;
             // 
             // dietPlan
             // 
@@ -122,9 +120,9 @@
             BackgroundImage = db_project_bois.Properties.Resources.dietPageJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
+            Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(comboBox1);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(button1);
             Controls.Add(linkLabel3);
             Controls.Add(linkLabel1);
@@ -132,6 +130,7 @@
             Name = "dietPlan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View Diet Plan";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,8 +140,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ComboBox comboBox1;
         private Label label2;
+        private DataGridView dataGridView1;
     }
 }

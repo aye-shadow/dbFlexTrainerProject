@@ -99,7 +99,7 @@ namespace db_project_bois
                 }
                 else
                 {
-                    string memberTYPE = "", planPurpose = comboBox2.Text, planType = comboBox1.Text, portionSize = comboBox3.Text, shareStatus = "";
+                    string memberTYPE = "", planName = textBox2.Text, planPurpose = comboBox2.Text, planType = comboBox1.Text, portionSize = comboBox3.Text, shareStatus = "";
                     if (memberType)
                     {
                         memberTYPE = "Member";
@@ -118,7 +118,7 @@ namespace db_project_bois
                     }
 
                     string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;";
-                    string query = "INSERT INTO Dietplan$ VALUES ((SELECT MAX(ID) FROM Dietplan$) + 1, @memberTYPE, @memberID, @planPurpose, @planType, @portionSize, @currentDate, @shareStatus)";
+                    string query = "INSERT INTO Dietplan$ VALUES ((SELECT MAX(ID) FROM Dietplan$) + 1, @memberTYPE, @memberID, @planPurpose, @planType, @portionSize, @currentDate, @shareStatus, @planName)";
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
@@ -131,9 +131,34 @@ namespace db_project_bois
                             command.Parameters.AddWithValue("@portionSize", portionSize);
                             command.Parameters.Add("@currentDate", SqlDbType.DateTime).Value = DateTime.Now;
                             command.Parameters.AddWithValue("@shareStatus", shareStatus);
+                            command.Parameters.AddWithValue("@planName", planName);
 
                             connection.Open();
                             command.ExecuteNonQuery();
+                        }
+                    }
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        DataGridViewComboBoxCell comboBoxCell = row.Cells["comboBoxColumn"] as DataGridViewComboBoxCell;
+
+                        if (comboBoxCell != null && comboBoxCell.Value != null)
+                        {
+                            string typeMeal = comboBoxCell.Value.ToString();
+                            int id = Convert.ToInt32(row.Cells["ID"].Value); // Assuming the ID is in a column named "ID"
+                            query = "INSERT INTO [Ditplan_meals$] VALUES ((SELECT MAX(ID) FROM Dietplan$), @id, @typeMeal)";
+                            using (SqlConnection connection = new SqlConnection(connectionString))
+                            {
+                                using (SqlCommand command = new SqlCommand(query, connection))
+                                {
+                                    command.Parameters.AddWithValue("@id", id);
+                                    command.Parameters.AddWithValue("@typeMeal", typeMeal);
+
+                                    connection.Open();
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+
                         }
                     }
 
@@ -164,7 +189,7 @@ namespace db_project_bois
             DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
             comboBoxColumn.HeaderText = "Type";
             comboBoxColumn.Name = "comboBoxColumn";
-            comboBoxColumn.Items.AddRange("Breakfast", "Lunch", "Dinner");
+            comboBoxColumn.Items.AddRange("", "Breakfast", "Lunch", "Dinner");
             dataGridView1.Columns.Insert(0, comboBoxColumn);
 
             foreach (DataGridViewColumn column in dataGridView1.Columns)

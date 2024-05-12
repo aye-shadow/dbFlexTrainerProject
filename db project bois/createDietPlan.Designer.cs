@@ -83,7 +83,7 @@
             comboBox2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Weight Loss", "Muscle Gain", "Maintenance" });
-            comboBox2.Location = new Point(362, 136);
+            comboBox2.Location = new Point(362, 137);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(367, 26);
             comboBox2.TabIndex = 101;
@@ -200,7 +200,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(338, 176);
+            dataGridView1.Location = new Point(338, 175);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(391, 136);

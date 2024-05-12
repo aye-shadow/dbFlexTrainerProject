@@ -29,40 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewPlanReport));
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            comboBox2 = new ComboBox();
             label2 = new Label();
-            comboBox1 = new ComboBox();
             textBox2 = new TextBox();
             label1 = new Label();
             label9 = new Label();
             label10 = new Label();
             linkLabel1 = new LinkLabel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             label3 = new Label();
             linkLabel3 = new LinkLabel();
+            dataGridView1 = new DataGridView();
+            dataGridView2 = new DataGridView();
+            textBox1 = new TextBox();
+            textBox3 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            flowLayoutPanel1.Location = new Point(326, 186);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(405, 92);
-            flowLayoutPanel1.TabIndex = 101;
-            flowLayoutPanel1.WrapContents = false;
-            // 
-            // comboBox2
-            // 
-            comboBox2.Enabled = false;
-            comboBox2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(364, 113);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(367, 26);
-            comboBox2.TabIndex = 100;
             // 
             // label2
             // 
@@ -75,24 +56,14 @@
             label2.TabIndex = 99;
             label2.Text = "Purpose:";
             // 
-            // comboBox1
-            // 
-            comboBox1.Enabled = false;
-            comboBox1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(340, 150);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(391, 26);
-            comboBox1.TabIndex = 98;
-            // 
             // textBox2
             // 
             textBox2.Font = new Font("Arial Rounded MT Bold", 8F);
-            textBox2.Location = new Point(387, 77);
+            textBox2.Location = new Point(365, 77);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(344, 26);
+            textBox2.Size = new Size(366, 26);
             textBox2.TabIndex = 97;
             // 
             // label1
@@ -142,17 +113,6 @@
             linkLabel1.Text = "GO BACK";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            flowLayoutPanel2.Location = new Point(334, 288);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(397, 92);
-            flowLayoutPanel2.TabIndex = 103;
-            flowLayoutPanel2.WrapContents = false;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -176,6 +136,46 @@
             linkLabel3.Size = new Size(184, 78);
             linkLabel3.TabIndex = 90;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(326, 182);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(405, 100);
+            dataGridView1.TabIndex = 106;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(334, 288);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.ReadOnly = true;
+            dataGridView2.RowHeadersWidth = 62;
+            dataGridView2.Size = new Size(397, 87);
+            dataGridView2.TabIndex = 107;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Arial Rounded MT Bold", 8F);
+            textBox1.Location = new Point(346, 113);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(385, 26);
+            textBox1.TabIndex = 108;
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("Arial Rounded MT Bold", 8F);
+            textBox3.Location = new Point(318, 148);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(413, 26);
+            textBox3.TabIndex = 109;
+            // 
             // viewPlanReport
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -183,12 +183,12 @@
             BackgroundImage = Properties.Resources.dietPageJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
-            Controls.Add(flowLayoutPanel2);
+            Controls.Add(textBox3);
+            Controls.Add(textBox1);
+            Controls.Add(dataGridView2);
+            Controls.Add(dataGridView1);
             Controls.Add(label3);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(comboBox2);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
             Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(label9);
@@ -199,23 +199,24 @@
             Name = "viewPlanReport";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Plan Report";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel1;
-        private ComboBox comboBox2;
         private Label label2;
-        private ComboBox comboBox1;
         private TextBox textBox2;
         private Label label1;
         private Label label9;
         private Label label10;
         private LinkLabel linkLabel1;
-        private FlowLayoutPanel flowLayoutPanel2;
         private Label label3;
         private LinkLabel linkLabel3;
+        private DataGridView dataGridView1;
+        private DataGridView dataGridView2;
+        private TextBox textBox1;
+        private TextBox textBox3;
     }
 }
