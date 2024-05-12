@@ -217,7 +217,6 @@ C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.AssemblyInfo.cs
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CoreCompileInputs.cache
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.sourcelink.json
-C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db proje.6732C952.Up2Date
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.dll
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\refint\db project bois.dll
 C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.pdb
@@ -295,3 +294,8 @@ D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\Wind
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerRemoveMemberAccounts.resources
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerTrainerReport.resources
 D:\SEMESTER 4\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerRequests.resources
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.manage_trainer.resources
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerRemoveMemberAccounts.resources
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.ownerTrainerReport.resources
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\WindowsFormsApp1.trainerRequests.resources
+C:\dbFlexTrainerProject\db project bois\obj\Debug\net8.0-windows\db project bois.csproj.CopyComplete
