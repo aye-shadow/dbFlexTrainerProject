@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -18,11 +19,28 @@ namespace Db_project_1
     public partial class appointmentdetails : Form
     {
         private int memberID;
+        string filterBy = "";
         public appointmentdetails(int memberID = 1)
         {
             InitializeComponent();
             this.memberID = memberID;
+            updateStatus();
             loadAllAppointments();
+        }
+
+        void updateStatus()
+        {
+            string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+            string query = "UPDATE [Training_session$] SET status = CASE WHEN GETDATE() > appointmentDate and status like 'Confirmed' THEN 'Confirmed' WHEN GETDATE() > appointmentDate and status like 'Scheduled' Then 'Cancelled' ELSE status END WHERE id > 0";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Add parameters   
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -62,82 +80,70 @@ namespace Db_project_1
         private void loadAllAppointments()
         {
             // load all appointments a trainer has from db into list
-
             flowLayoutPanel1.Controls.Clear();
-            string[] data =
+
+            string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+            string query = "SELECT [Training_session$].id, concat(firstName, ' ', LastName) as name, appointmentDate, [Training_session$].Status from [Training_session$] join Trainer$ on Trainer$.ID = Training_session$.TrainerID where MemberID = @memberID" + filterBy;
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                "Trainer15, 01/01/2024",
-                "Trainer12, 01/28/2024",
-                "Trainer23, 02/11/2024",
-                "Trainer7, 02/21/2024",
-                "Trainer11, 03/09/2024",
-                "Trainer16, 03/20/2024",
-                "Trainer5, 04/12/2024",
-                "Trainer21, 04/26/2024",
-                "Trainer13, 05/16/2024",
-                "Trainer9, 06/14/2024",
-                "Trainer1, 06/23/2024",
-                "Trainer18, 06/29/2024",
-                "Trainer3, 07/08/2024",
-                "Trainer24, 07/22/2024",
-                "Trainer20, 08/15/2024",
-                "Trainer8, 08/19/2024",
-                "Trainer2, 09/17/2024",
-                "Trainer19, 09/25/2024",
-                "Trainer6, 10/05/2024",
-                "Trainer17, 10/10/2024",
-                "Trainer14, 11/07/2024",
-                "Trainer4, 11/20/2024",
-                "Trainer10, 12/03/2024",
-                "Trainer22, 12/18/2024"
-            };
-
-            foreach (string row in data)
-            {
-                string[] parts = row.Split(',');
-                string plan = parts[0].Trim();
-                string meals = parts[1].Trim();
-
-                Panel panel = new Panel();
-                panel.AutoSize = true;
-                panel.Dock = DockStyle.Top;
-                panel.AutoSize = true;
-
-                Label memberLabel = new Label();
-                memberLabel.Text = plan;
-                memberLabel.AutoSize = true;
-                panel.Controls.Add(memberLabel);
-
-                Label dateLabel = new Label();
-                dateLabel.Text = meals;
-                dateLabel.AutoSize = true;
-                panel.Controls.Add(dateLabel);
-
-                // if author == self then do follwoing:
-                LinkLabel viewScheduleLink = new LinkLabel();
-                viewScheduleLink.Text = "View";
-                viewScheduleLink.AutoSize = true;
-                viewScheduleLink.Click += (sender, e) =>
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    memberViewSpecificAppointment editPlan = new memberViewSpecificAppointment(dateLabel.Text, true, memberID);
-                    this.Hide();
-                    editPlan.Show();
-                };
-                panel.Controls.Add(viewScheduleLink);
+                    // Add parameters   
+                    command.Parameters.AddWithValue("@memberID", memberID);
 
-                int xOffset = memberLabel.Width + 5;
-                dateLabel.Location = new Point(xOffset, 0); // Set label's location
-                xOffset += dateLabel.Width + 5;
-                viewScheduleLink.Location = new Point(xOffset, 0); // Set label's location
+                    connection.Open();
 
-                // Add the panel to the FlowLayoutPanel
-                flowLayoutPanel1.Controls.Add(panel);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Panel panel = new Panel();
+                            panel.AutoSize = true;
+                            panel.Dock = DockStyle.Top;
+                            panel.AutoSize = true;
 
-                Panel linePanel = new Panel();
-                linePanel.BackColor = Color.Black; // Set line color
-                linePanel.Height = 1; // Set line height
-                linePanel.Dock = DockStyle.Top; // Dock to top of the panels
-                flowLayoutPanel1.Controls.Add(linePanel);
+                            Label idLabel = new Label();
+                            idLabel.Text = reader["id"].ToString();
+                            idLabel.AutoSize = true;
+                            idLabel.Visible = false;
+                            panel.Controls.Add(idLabel);
+
+                            Label memberLabel = new Label();
+                            memberLabel.Text = reader["name"].ToString();
+                            memberLabel.AutoSize = true;
+                            panel.Controls.Add(memberLabel);
+
+                            Label dateLabel = new Label();
+                            dateLabel.Text = reader["appointmentDate"].ToString();
+                            dateLabel.AutoSize = true;
+                            panel.Controls.Add(dateLabel);
+
+                            LinkLabel viewScheduleLink = new LinkLabel();
+                            viewScheduleLink.AutoSize = true;
+                            viewScheduleLink.Text = "View";
+                            viewScheduleLink.Click += (sender, e) =>
+                            {
+                                memberViewSpecificAppointment editPlan = new memberViewSpecificAppointment(dateLabel.Text, true, memberID, int.Parse(idLabel.Text));
+                                this.Hide();
+                                editPlan.Show();
+                            };
+
+                            panel.Controls.Add(viewScheduleLink);
+
+                            int xOffset = memberLabel.Width + 5;
+                            dateLabel.Location = new Point(xOffset, 0); // Set label's location
+                            xOffset += dateLabel.Width + 5;
+                            viewScheduleLink.Location = new Point(xOffset, 0); // Set label's location
+                            flowLayoutPanel1.Controls.Add(panel);
+
+                            Panel linePanel = new Panel();
+                            linePanel.BackColor = Color.Black; // Set line color
+                            linePanel.Height = 1; // Set line height
+                            linePanel.Dock = DockStyle.Top; // Dock to top of the panels
+                            flowLayoutPanel1.Controls.Add(linePanel);
+                        }
+                    }
+                }
             }
         }
 
@@ -151,6 +157,35 @@ namespace Db_project_1
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    filterBy = " order by appointmentDate ";
+                    break;
+                case 1:
+                    filterBy = " order by appointmentDate desc ";
+                    break;
+                case 2:
+                    filterBy = " and training_session$.status like 'Cancelled' ";
+                    break;
+                case 3:
+                    filterBy = " and training_session$.status like 'Scheduled' ";
+                    break;
+                case 4:
+                    filterBy = " and training_session$.status like 'Confirmed' ";
+                    break;
+                case 5:
+                    filterBy = " and training_session$.status like 'Completed' ";
+                    break;
+                default:
+                    filterBy = "";
+                    break;
+            }
+            loadAllAppointments();
         }
     }
 }

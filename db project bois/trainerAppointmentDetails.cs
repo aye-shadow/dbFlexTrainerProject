@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         Dictionary<int, string> dictionary = new Dictionary<int, string>();
         public trainerAppointmentDetails(string gymName, bool viewOnly, int sessionID, int memberID = 1, string dateSelected = "")
         {
-            MessageBox.Show(sessionID.ToString());
             InitializeComponent();
             this.memberID = memberID;
             this.sessionID = sessionID;
@@ -39,7 +38,10 @@ namespace WindowsFormsApp1
                 this.dateSelected = DateTime.Parse(dateSelected);
             }
             initialiseFields();
-            checkIfAppointmentCancelled();
+            if (viewOnly)
+            {
+                checkIfAppointmentCancelled();
+            }
         }
 
         private void checkIfAppointmentCancelled()
@@ -56,7 +58,7 @@ namespace WindowsFormsApp1
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        // Clear existing items in the ComboBox
+                        comboBox1.Enabled = false;
                         comboBox1.Items.Clear();
                         // Read each row from the result set and add the value to the ComboBox
                         while (reader.Read())
@@ -106,61 +108,93 @@ namespace WindowsFormsApp1
             }
 
             string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
-            string query = "select Member$.ID, concat(Member$.firstname, ' ', Member$.lastname) as name from Member$ join Training_session$ on Training_session$.MemberID = Member$.ID join Trainer$ on Trainer$.ID = Training_session$.TrainerID where Trainer$.ID = @memberID";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (viewOnly)
             {
-                connection.Open();
+                comboBox1.Items.Clear();
+                string query = "select training_session$.id as tID, Member$.ID, concat(Member$.firstname, ' ', Member$.lastname) as name from Member$ join Training_session$ on Training_session$.MemberID = Member$.ID join Trainer$ on Trainer$.ID = Training_session$.TrainerID where Trainer$.ID = @memberID";
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@memberID", memberID);
+                    connection.Open();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Clear existing items in the ComboBox
-                        comboBox1.Items.Clear();
+                        command.Parameters.AddWithValue("@memberID", memberID);
 
-                        // Read each row from the result set and add the value to the ComboBox
-                        while (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            dictionary.Add(int.Parse(reader["id"].ToString()), reader["name"].ToString());
-                        }
-                    }
+                            // Clear existing items in the ComboBox
+                            comboBox1.Items.Clear();
 
-                    foreach (var kvp in dictionary)
-                    {
-                        comboBox1.Items.Add(new KeyValuePair<int, string>(kvp.Key, kvp.Value));
-                    }
-
-                    query = "SELECT Training_session$.MemberID, concat(firstname, ' ', lastname) as name, Training_session$.status from Training_session$ join Member$ on Member$.ID = Training_session$.MemberID where Training_session$.ID = @sessionID";
-                    using (SqlCommand command1 = new SqlCommand(query, connection))
-                    {
-                        command1.Parameters.AddWithValue("@sessionID", sessionID);
-
-                        using (SqlDataReader reader1 = command1.ExecuteReader())
-                        {
-                            while (reader1.Read())
+                            // Read each row from the result set and add the value to the ComboBox
+                            while (reader.Read())
                             {
-                                textBox1.Text = reader1["status"].ToString();
-                                KeyValuePair<int, string> selectedPair = new KeyValuePair<int, string>(int.Parse(reader1["memberid"].ToString()), reader1["name"].ToString());
-                                int index = -1;
-                                for (int i = 0; i < comboBox1.Items.Count; i++)
+                                dictionary.Add(int.Parse(reader["tID"].ToString()), reader["name"].ToString());
+                            }
+                        }
+
+                        foreach (var kvp in dictionary)
+                        {
+                            comboBox1.Items.Add(new KeyValuePair<int, string>(kvp.Key, kvp.Value));
+                        }
+
+                        query = "SELECT Training_session$.id, Training_session$.MemberID, concat(firstname, ' ', lastname) as name, Training_session$.status from Training_session$ join Member$ on Member$.ID = Training_session$.MemberID where Training_session$.ID = @sessionID";
+                        using (SqlCommand command1 = new SqlCommand(query, connection))
+                        {
+                            command1.Parameters.AddWithValue("@sessionID", sessionID);
+
+                            using (SqlDataReader reader1 = command1.ExecuteReader())
+                            {
+                                while (reader1.Read())
                                 {
-                                    KeyValuePair<int, string> item = (KeyValuePair<int, string>)comboBox1.Items[i];
-                                    if (item.Key == selectedPair.Key && item.Value == selectedPair.Value)
+                                    textBox1.Text = reader1["status"].ToString();
+                                    KeyValuePair<int, string> selectedPair = new KeyValuePair<int, string>(int.Parse(reader1["id"].ToString()), reader1["name"].ToString());
+                                    int index = -1;
+                                    for (int i = 0; i < comboBox1.Items.Count; i++)
                                     {
-                                        index = i;
-                                        break;
+                                        KeyValuePair<int, string> item = (KeyValuePair<int, string>)comboBox1.Items[i];
+                                        if (item.Key == selectedPair.Key && item.Value == selectedPair.Value)
+                                        {
+                                            index = i;
+                                            break;
+                                        }
                                     }
+                                    comboBox1.SelectedIndex = index;
+                                    break;
                                 }
-                                comboBox1.SelectedIndex = index;
-                                break;
                             }
                         }
                     }
                 }
             }
+            else
+            {
+                comboBox1.Items.Clear();
+                string query = "select member$.ID, concat(firstname, ' ', lastname) as name, GymName from Member$ join Member_gym$ on Member$.ID = Member_gym$.MemberID join Gym$ on Gym$.GymID = Member_gym$.GymID where gymname like @gymName and Member$.Status like 'active'";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@gymname", gymName);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                dictionary.Add(int.Parse(reader["id"].ToString()), reader["name"].ToString());
+                            }
+                        }
+
+                        foreach (var kvp in dictionary)
+                        {
+                            comboBox1.Items.Add(new KeyValuePair<int, string>(kvp.Key, kvp.Value));
+                        }
+                    }
+                }
+            }   
         }
 
         private void appointmentDetails_Load(object sender, EventArgs e)
@@ -175,17 +209,33 @@ namespace WindowsFormsApp1
             manage_Appointments_Trainer.Show();
         }
 
-        private int GetSelectedID(string selectedItem)
+        private bool dateAlreadyBooked(string date)
         {
-            foreach (var pair in dictionary)
+            string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+            string query = "select * from training_session$ where CONVERT(date, appointmentDate) like @date and status not like 'Cancelled'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if (pair.Value == selectedItem)
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    return pair.Key;
+                    command.Parameters.AddWithValue("@date", date);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            MessageBox.Show("Day not available!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return true;
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
                 }
             }
-
-            return -1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -219,9 +269,27 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Select member to schedule with!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                else if (dateAlreadyBooked(monthCalendar1.SelectionStart.Date.ToString("yyyy-MM-dd")))
+                {
+                    
+                }
                 else
                 {
-                    // add appointment to db
+                    string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+                    string query = "insert into Training_session$ (id, MemberID, TrainerID, RequestDate, appointmentDate, Status) values ((select max(id) from training_session$) + 1, @withMemberID, @memberID, GETDATE(), @date, 'Confirmed')";
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@withMemberID", ((KeyValuePair<int, string>)comboBox1.SelectedItem).Key);
+                            command.Parameters.AddWithValue("@memberID", memberID);
+                            command.Parameters.AddWithValue("@date", monthCalendar1.SelectionStart.Date.ToString("yyyy-MM-dd"));
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
 
                     MessageBox.Show("Appointment Successfuly Scheduled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -240,21 +308,21 @@ namespace WindowsFormsApp1
                 button3.Enabled = false;
                 button2.Text = "SCHEDULE APPOINTMENT";
             }
-            else if (button2.Text == "SCHEDULE APPOINTMENT")
+            else if (button2.Text == "SCHEDULE APPOINTMENT" && !dateAlreadyBooked(monthCalendar1.SelectionStart.Date.ToString("yyyy-MM-dd")))
             {
                 // edit date in db
                 DateTime selectedDate = monthCalendar1.SelectionStart;
                 string formattedDate = selectedDate.ToString("yyyy-MM-dd");
 
                 string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
-                string query = "update Training_session$ set [RequestDate] = @formattedDate where id = @sessionID";
+                string query = "update Training_session$ set appointmentDate = @formattedDate where id = @sessionID";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@formattedDate", formattedDate);
-                        command.Parameters.AddWithValue("@sessionID", sessionID);
+                        command.Parameters.AddWithValue("@sessionID", ((KeyValuePair<int, string>)comboBox1.SelectedItem).Key);
 
                         command.ExecuteNonQuery();
                     }

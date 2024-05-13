@@ -32,6 +32,8 @@
             button3 = new Button();
             button2 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // button3
@@ -73,6 +75,29 @@
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Arial Rounded MT Bold", 8F);
+            label2.ForeColor = SystemColors.ControlText;
+            label2.Location = new Point(296, 340);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 18);
+            label2.TabIndex = 109;
+            label2.Text = "Sort by:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Oldest to Newest", "Newest to Oldest", "Cancelled", "Scheduled", "Confirmed", "Completed" });
+            comboBox1.Location = new Point(372, 337);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(240, 26);
+            comboBox1.TabIndex = 108;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // appointmentdetails
             // 
             AutoScaleDimensions = new SizeF(10F, 18F);
@@ -81,6 +106,8 @@
             BackgroundImage = db_project_bois.Properties.Resources.memberViewAppointmentsJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
+            Controls.Add(label2);
+            Controls.Add(comboBox1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(button2);
             Controls.Add(button3);
@@ -91,11 +118,14 @@
             Text = "Manage Appointments";
             Load += appointmentdetails_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private Button button3;
         private Button button2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label label2;
+        private ComboBox comboBox1;
     }
 }

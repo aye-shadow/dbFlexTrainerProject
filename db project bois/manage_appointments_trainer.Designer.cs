@@ -33,6 +33,8 @@
             button1 = new Button();
             button2 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -41,7 +43,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(129, 127);
+            label1.Location = new Point(129, 116);
             label1.Name = "label1";
             label1.Size = new Size(243, 38);
             label1.TabIndex = 0;
@@ -85,6 +87,29 @@
             flowLayoutPanel1.TabIndex = 29;
             flowLayoutPanel1.WrapContents = false;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Arial Rounded MT Bold", 8F);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(328, 177);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 18);
+            label2.TabIndex = 107;
+            label2.Text = "Sort by:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Oldest to Newest", "Newest to Oldest", "Cancelled", "Scheduled", "Confirmed", "Completed" });
+            comboBox1.Location = new Point(404, 171);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(240, 33);
+            comboBox1.TabIndex = 106;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // manage_appointments_trainer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -92,6 +117,8 @@
             BackgroundImage = db_project_bois.Properties.Resources.specificSignUpPageJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(978, 708);
+            Controls.Add(label2);
+            Controls.Add(comboBox1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -112,5 +139,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label label2;
+        private ComboBox comboBox1;
     }
 }
