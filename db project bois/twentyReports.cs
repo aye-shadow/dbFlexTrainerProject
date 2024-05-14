@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace db_project_bois
 {
@@ -78,74 +82,192 @@ namespace db_project_bois
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedID = GetSelectedID(comboBox1.SelectedItem.ToString());
-            string q;
+            string q = "";
             if (selectedID == 0) 
-            { q = "SELECT m.ID, m.FirstName, m.LastName, m.Email, m.Contact\r\n   FROM Member$ m\r\n   JOIN Member_Gym$ mg ON m.ID = mg.MemberID\r\n   JOIN Training_Session$ ts ON m.ID = ts.MemberID\r\n   WHERE mg.GymID = 1  AND ts.TrainerID = 1;\r\n"; }
+            { q = "SELECT m.ID, m.FirstName, m.LastName, m.Email, m.Contact" +
+                    "   FROM Member$ m" +
+                    "   JOIN Member_Gym$ mg ON m.ID = mg.MemberID" +
+                    "   JOIN Training_Session$ ts ON m.ID = ts.MemberID" 
+                    //+"   WHERE mg.GymID = 1  AND ts.TrainerID = 1"
+                    ; 
+            }
             if (selectedID ==1)
-            { q = "SELECT m.ID, m.FirstName, m.LastName, m.Email, m.Contact\r\n   FROM Member$ m\r\n   JOIN Member_Gym$ mg ON m.ID = mg.MemberID\r\n   JOIN DietPlan_Followers$ dpf ON m.ID = dpf.MemberID\r\n   WHERE mg.GymID = 1 AND dpf.DietPlanID = 1 "; }
+            { q = "SELECT m.ID, m.FirstName, m.LastName, m.Email, m.Contact" +
+                    "   FROM Member$ m" +
+                    "   JOIN Member_Gym$ mg ON m.ID = mg.MemberID" +
+                    "   JOIN Diet_Plan_Followers$ dpf ON m.ID = dpf.MemberID"
+                    //+"   WHERE mg.GymID = 1 AND dpf.DietPlanID = 1 "
+                    ;
+            }
             if (selectedID ==2)
-            { q = "  SELECT DISTINCT m.ID, m.FirstName, m.LastName, m.Email, m.Contact\r\n   FROM Member$ m\r\n   JOIN Training_Session$ ts ON m.ID = ts.MemberID\r\n   JOIN DietPlan_Followers dpf ON m.ID = dpf.MemberID\r\n   WHERE ts.TrainerID = 1 AND dpf.DietPlanID = 1";  }
+            { q = "  SELECT DISTINCT m.ID, m.FirstName, m.LastName, m.Email, m.Contact" +
+                    "   FROM Member$ m" +
+                    "   JOIN Training_Session$ ts ON m.ID = ts.MemberID" +
+                    "   JOIN Diet_Plan_Followers$ dpf ON m.ID = dpf.MemberID"
+            //+        "   WHERE ts.TrainerID = 1 AND dpf.DietPlanID = 1"
+                ;  
+            }
             if (selectedID ==3)
-            { q = "SELECT COUNT(DISTINCT m.ID) AS NumberOfMembers\r\n   FROM Member$ m\r\n   JOIN Member_Gym$ mg ON m.ID = mg.MemberID\r\n   JOIN Training_Session$ ts ON m.ID = ts.MemberID\r\n   JOIN Appointments$ a ON ts.ID = a.TrainingSessionID\r\n   WHERE mg.GymID = 1 AND a.AppointmentDate = getdate() \r\n   AND EXISTS (     SELECT 1 FROM Workout_Exercise$ we      JOIN Exercise$ e ON we.ExerciseID = e.ID     WHERE e.EquipmentID = 1  AND we.WorkoutID = ts.WorkoutID\r\n   )"; }
+            { 
+                //q = "SELECT COUNT(DISTINCT m.ID) AS NumberOfMembers" +
+                //    "   FROM Member$ m" +
+                //    "   JOIN Member_Gym$ mg ON m.ID = mg.MemberID" +
+                //    "   JOIN Training_Session$ ts ON m.ID = ts.MemberID" +
+                //    "   JOIN Appointments$ a ON ts.ID = a.TrainingSessionID" +
+                //    "   WHERE mg.GymID = 1 AND a.AppointmentDate = getdate() " +
+                //    "   AND EXISTS (     " +
+                //    "       SELECT 1 FROM Workout_Exercise$ we      " +
+                //    "       JOIN Exercise$ e ON we.ExerciseID = e.ID     " +
+                //    "       WHERE e.EquipmentID = 1  AND we.ExerciseID = ts.ExerciseID   " +
+                //    ")"; 
+            }
             if (selectedID == 4)
-            { q = "SELECT DISTINCT dp.ID, dp.Purpose, dp.Type FROM DietPlan$ dp\r\n   JOIN DietPlan_Meals$ dpm ON dp.ID = dpm.DietPlanID\r\n   JOIN Meal$ m ON dpm.MealID = m.ID\r\n   WHERE m.Calories < 500 AND m.Type = 'Breakfast'"; }
+            { q = "SELECT DISTINCT dp.ID, dp.Purpose, dp.Type FROM DietPlan$ dp" +
+                    "   JOIN DitPlan_meals$ dpm ON dp.ID = dpm.DietPlanID" +
+                    "   JOIN Meal$ m ON dpm.MealID = m.ID" +
+                    "   WHERE m.Calories < 500 AND m.Type = 'Breakfast'"; }
             if(selectedID == 5)
-            { q = " SELECT dp.ID, dp.Purpose, dp.Type\r\n   FROM DietPlan$ dp\r\n   JOIN DietPlan_Meals$ dpm ON dp.ID = dpm.DietPlanID\r\n   JOIN Meal$ m ON dpm.MealID = m.ID\r\n   GROUP BY dp.ID\r\n   HAVING SUM(m.Carbs) < 300";  }
+            { q = " SELECT dp.ID, dp.Purpose, dp.Type" +
+                    "   FROM DietPlan$ dp" +
+                    "   JOIN DitPlan_meals$ dpm ON dp.ID = dpm.DietPlanID" +
+                    "   JOIN Meal$ m ON dpm.MealID = m.ID" +
+                    "   GROUP BY dp.ID, dp.Purpose, dp.Type" +
+                    "   HAVING SUM(m.Carbs) < 300";  }
             if (selectedID == 6)
             {
-                q = " SELECT DISTINCT wp.ID, wp.ExperienceLevel, wp.Goal\r\n   FROM Workout_Plan$ wp\r\n   WHERE NOT EXISTS (\r\n       SELECT 1 FROM Workout_Exercise$ we\r\n       JOIN Exercise$ e ON we.ExerciseID = e.ID\r\n       WHERE e.EquipmentID = 1 AND we.WorkoutID = wp.ID\r\n   ) ";
+                q = " SELECT DISTINCT wp.ID, wp.ExperienceLevel, wp.Goal" +
+                    "   FROM Workout_Plan$ wp" +
+                    "   WHERE NOT EXISTS (" +
+                    "       SELECT 1 FROM Workout_Exercise$ we" +
+                    "       JOIN Exercise$ e ON we.ExerciseID = e.ID" +
+                    "       WHERE e.EquipmentID = 1 AND we.WorkoutID = wp.ID" +
+                    "   ) ";
             }
             if (selectedID == 7)
-            { q = " SELECT DISTINCT dp.ID, dp.Purpose, dp.Type\r\n   FROM DietPlan$ dp\r\n   WHERE NOT EXISTS (\r\n       SELECT 1 FROM DietPlan_Meal$s dpm\r\n       JOIN Meal_Allergy$ ma ON dpm.MealID = ma.MealID\r\n       JOIN Allergens$ a ON ma.AllergyID = a.ID\r\n       WHERE a.Name = 'Peanuts' AND dpm.DietPlanID = dp.ID\r\n   ) ";  }
-          if(selectedID == 8)
+            { q = " SELECT DISTINCT dp.ID, dp.Purpose, dp.Type" +
+                    "   FROM DietPlan$ dp" +
+                    "   WHERE NOT EXISTS (" +
+                    "       SELECT 1 FROM DitPlan_Meals$ dpm" +
+                    "       JOIN Meal_Allergy$ ma ON dpm.MealID = ma.MealID" +
+                    "       JOIN Allergens$ a ON ma.AllergyID = a.ID" +
+                    "       WHERE a.Name = 'Peanuts' AND dpm.DietPlanID = dp.ID" +
+                    "   ) ";  }
+            if(selectedID == 8)
             {
-                q = " SELECT mg.GymID, COUNT(mg.MemberID) AS NewMembers\r\n   FROM Member_Gym$ mg\r\n   WHERE mg.JoinDate >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)\r\n   GROUP BY mg.GymID;\r\n ";
+                q = "SELECT mg.GymID, COUNT(mg.MemberID) AS NewMembers FROM Member_Gym$ mg WHERE mg.JoinDate >= DATEADD(MONTH, -3, GETDATE()) GROUP BY mg.GymID;";
             }
-          if(selectedID==9)
+            if(selectedID==9)
             {
-                q = " SELECT mg.GymID, COUNT(DISTINCT mg.MemberID) AS TotalMembers\r\n    FROM Member_Gym$ mg\r\n    WHERE mg.JoinDate >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)\r\n    GROUP BY mg.GymID ";
+                q = " SELECT mg.GymID, COUNT(DISTINCT mg.MemberID) AS TotalMembers FROM Member_Gym$ mg WHERE mg.JoinDate >= DATEADD(MONTH, -6, GETDATE()) GROUP BY mg.GymID;";
             }
-          if(selectedID == 10 )
+            if(selectedID == 10 )
             {
-                q = " SELECT t.ID, t.FirstName, t.LastName, t.Email, t.Contact, tg.GymID    FROM Trainer$ t   JOIN Trainer_Gym$ tg ON t.ID = tg.TrainerID    WHERE tg.RegistrationDate <= getdate() AND tg.ApprovalStatus = 'Approved' ";
+                q = " SELECT t.ID, t.FirstName, t.LastName, t.Email, t.Contact, tg.GymID    " +
+                    "FROM Trainer$ t   " +
+                    "JOIN Trainer_Gym$ tg ON t.ID = tg.TrainerID    " +
+                    "WHERE tg.RegistrationDate <= getdate() AND tg.ApprovalStatus = 'Approved' ";
             }
-          if(selectedID == 11 )
+            if(selectedID == 11 )
             {
-                q = " SELECT m.ID, m.FirstName, m.LastName, m.Email\r\n   FROM Member$ m\r\n   WHERE NOT EXISTS (\r\n       SELECT 1 FROM Training_Session$ ts\r\n       WHERE ts.MemberID = m.ID AND ts.RequestDate >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)   )  "; 
+                q = " SELECT m.ID, m.FirstName, m.LastName, m.Email " +
+                    "FROM Member$ m " +
+                    "WHERE NOT EXISTS (" +
+                    "    SELECT 1 FROM Training_Session$ ts" +
+                    "    WHERE ts.MemberID = m.ID AND ts.RequestDate >= DATEADD(MONTH, -1, GETDATE())" +
+                    ")  "; 
             }
-          if(selectedID == 12 )
+            if(selectedID == 12 )
             {
-                q = " SELECT t.ID, t.FirstName, t.LastName, COUNT(dp.ID) AS NumberOfDietPlans\r\n   FROM Trainer$ t\r\n   JOIN DietPlan$ dp ON dp.CreatorID = t.ID AND dp.CreatorType = 'Trainer'\r\n   WHERE dp.ShareStatus = 'Active'\r\n   GROUP BY t.ID  ";
+                q = " SELECT t.ID, t.FirstName, t.LastName, COUNT(dp.ID) AS NumberOfDietPlans" +
+                    "   FROM Trainer$ t" +
+                    "   JOIN DietPlan$ dp ON dp.CreatorID = t.ID AND dp.CreatorType = 'Trainer'" +
+                    "   WHERE dp.ShareStatus = 'Active'" +
+                    "   GROUP BY t.ID,t.FirstName, t.LastName  ";
             }
-          if(selectedID == 13 )
+            if(selectedID == 13 )
             {
-                q = " SELECT g.GymID, g.GymName\r\n   FROM Gym$ g\r\n   WHERE NOT EXISTS (\r\n       SELECT 1 FROM Trainer_Gym$ tg\r\n       WHERE tg.GymID = g.GymID AND tg.ApprovalStatus = 'Approved'\r\n   ) "; 
+                q = " SELECT g.GymID, g.GymName" +
+                    "   FROM Gym$ g" +
+                    "   WHERE NOT EXISTS (" +
+                    "       SELECT 1 FROM Trainer_Gym$ tg" +
+                    "       WHERE tg.GymID = g.GymID AND tg.ApprovalStatus = 'Approved'" +
+                    "   ) "; 
             }
-          if (selectedID ==14)
+            if (selectedID ==14)
             {
-                q = "   SELECT t.ID, t.FirstName, t.LastName, COUNT(f.ID) AS LowRatingsCount\r\n   FROM Trainer$ t\r\n   JOIN Feedback$ f ON t.ID = f.TrainerID\r\n   WHERE f.Stars < 3\r\n   GROUP BY t.ID";
+                q = "   SELECT t.ID, t.FirstName, t.LastName, COUNT(f.ID) AS LowRatingsCount" +
+                    "   FROM Trainer$ t" +
+                    "   JOIN Feedback$ f ON t.ID = f.TrainerID" +
+                    "   WHERE f.Stars < 3" +
+                    "   GROUP BY t.ID,t.FirstName, t.LastName";
             }
-          if (selectedID == 15 )
+            if (selectedID == 15 )
             {
-                q = "  SELECT m.ID, m.FirstName, m.LastName\r\n   FROM Member$ m\r\n   JOIN DietPlan_Followers$ dpf ON m.ID = dpf.MemberID\r\n   JOIN Workout_Followers$ wf ON m.ID = wf.MemberID JOIN DietPlan$ dp ON dpf.DietPlanID = dp.ID AND dp.Purpose = 'Weight Loss'\r\n   JOIN Workout_Plan$ wp ON wf.WorkoutID = wp.ID AND wp.Goal = 'Weight Loss'";
+                q = "  SELECT m.ID, m.FirstName, m.LastName" +
+                    "   FROM Member$ m" +
+                    "   JOIN Diet_Plan_Followers$ dpf ON m.ID = dpf.MemberID" +
+                    "   JOIN Workout_Followers$ wf ON m.ID = wf.MemberID " +
+                    "JOIN DietPlan$ dp ON dpf.DietPlanID = dp.ID AND dp.Purpose = 'Weight Loss'" +
+                    "   JOIN Workout_Plan$ wp ON wf.WorkoutID = wp.ID AND wp.Goal = 'Weight Loss'";
             }
-          if ( selectedID == 16 )
+            if ( selectedID == 16 )
             {
-                q = "  SELECT t.ID, t.FirstName, t.LastName, COUNT(DISTINCT ts.Specialties) AS SpecialtyCount\r\n   FROM Trainer$ t\r\n   JOIN Trainer_Specialties ts ON t.ID = ts.TrainerID\r\n   WHERE t.JoinDate >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)\r\n   GROUP BY t.ID\r\n   ORDER BY SpecialtyCount DESC  ";
+                //q = "  SELECT t.ID, t.FirstName, t.LastName, COUNT(DISTINCT ts.Specialties) AS SpecialtyCount " +
+                //    "FROM Trainer$ t " +
+                //    "JOIN Trainer_Specialties ts ON t.ID = ts.TrainerID " +
+                //    "WHERE t.JoinDate >= DATEADD(YEAR, -1, GETDATE()) " +
+                //    "GROUP BY t.ID, t.FirstName, t.LastName " +
+                //    "ORDER BY SpecialtyCount DESC;";
             }
-          if (selectedID == 17 )
+            if (selectedID == 17 )
             {
-                q = " SELECT t.ID, t.FirstName, t.LastName, AVG(ts.TrainingDuration) AS AverageDuration\r\n   FROM Trainer$ t\r\n   JOIN Training_Session$ ts ON t.ID = ts.TrainerID\r\n   WHERE ts.RequestDate >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)\r\n   GROUP BY t.ID  "; 
+                //q = " SELECT t.ID, t.FirstName, t.LastName, AVG(ts.TrainingDuration) AS AverageDuration " +
+                //    "FROM Trainer$ t JOIN Training_Session$ ts ON t.ID = ts.TrainerID " +
+                //    "WHERE ts.RequestDate >= DATEADD(MONTH, -1, GETDATE()) " +
+                //    "GROUP BY t.ID, t.FirstName, t.LastName;                "; 
             }
-          if(selectedID == 18 )
+            if(selectedID == 18 )
             {
-                q = " SELECT m.ID, m.FirstName, m.LastName, COUNT(*) AS EquipmentUsageCount\r\n   FROM Member$ m\r\n   JOIN Training_Session$ ts ON m.ID = ts.MemberID\r\n   JOIN Workout_Exercise$ we ON ts.WorkoutID = we.WorkoutID\r\n   JOIN Exercise e ON we.ExerciseID = e.ID\r\n   WHERE e.EquipmentID = 1 AND ts.RequestDate >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)\r\n   GROUP BY m.ID\r\n   ORDER BY EquipmentUsageCount DESC   "; 
+                //q = " SELECT m.ID, m.FirstName, m.LastName, COUNT(*) AS EquipmentUsageCount " +
+                //    "FROM Member$ m " +
+                //    "JOIN Training_Session$ ts ON m.ID = ts.MemberID " +
+                //    "JOIN Workout_Exercise$ we ON ts.WorkoutID = we.WorkoutID " +
+                //    "JOIN Exercise e ON we.ExerciseID = e.ID " +
+                //    "WHERE e.EquipmentID = 1 AND ts.RequestDate >= DATEADD(YEAR, -1, GETDATE()) " +
+                //    "GROUP BY m.ID, m.FirstName, m.LastName " +
+                //    "ORDER BY EquipmentUsageCount DESC;                "; 
             }
-          if(selectedID == 19 )
+            if(selectedID == 19 )
             {
-                q = "  SELECT g.GymID, g.GymName, SUM(ge.Amount) AS TotalEquipment\r\n    FROM Gym$ g\r\n    JOIN Gym_Equipment$ ge ON g.GymID = ge.GymID\r\n    GROUP BY g.GymID   ";
+                q = "  SELECT g.GymID, g.GymName, SUM(ge.Amount) AS TotalEquipment" +
+                    "    FROM Gym$ g" +
+                    "    JOIN Gym_Equipment$ ge ON g.GymID = ge.GymID" +
+                    "    GROUP BY g.GymID, g.GymName   ";
             }
-            MessageBox.Show("Selected Item ID: " + selectedID);
+            if (selectedID == 20)
+            {
+
+            }
+          
+          if (q != "")
+            {
+                string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;"; // Replace with your connection string
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(q, connection))
+                    {
+                        connection.Open();
+
+                        DataTable dataTable = new DataTable();
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+
+                        dataGridView1.DataSource = dataTable;
+                    }
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

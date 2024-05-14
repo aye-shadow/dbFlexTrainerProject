@@ -41,11 +41,12 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "By Trainer", "By User", "Nutritonal Value", "Diet Type", "Purpose" });
+            comboBox1.Items.AddRange(new object[] { "Trainer", "Member", "Goal: Bulking", "Goal: Cutting", "Goal: Weight Loss", "Experience Level: Beginner", "Experience Level: Intermediate", "Experience Level: Advanced", "Oldest to Newest", "Newest to Oldest" });
             comboBox1.Location = new Point(315, 78);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(240, 26);
             comboBox1.TabIndex = 29;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // flowLayoutPanel1
             // 

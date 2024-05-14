@@ -18,8 +18,9 @@ namespace db_project_bois
 {
     public partial class viewWorkout : Form
     {
-        private bool memberType;
+        private bool memberType, orderBy = false;
         private int memberID;
+        private string filterBy = "";
         public viewWorkout(bool memberType, int memberID)
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace db_project_bois
                 "  join Exercise$ on Exercise$.ID = Workout_exercise$.ExerciseID" +
                 "  left join Trainer$ on Trainer$.ID = Workout_plan$.CreatorID" +
                 "  left join Member$ on Member$.ID = Workout_plan$.CreatorID" +
-                "  where CreatorType like @memberTYPE and CreatorID = @memberID" +
+                "  where CreatorType like @memberTYPE and CreatorID = @memberID " + (!orderBy ? filterBy : "") +
                 "  group by Workout_plan$.id, workoutname, creatorid, CreatorType, CreationDate, workoutName, ShareStatus, trainer$.FirstName, trainer$.LastName, Member$.FirstName, Member$.LastName";
             if (memberType)
             {
@@ -71,9 +72,10 @@ namespace db_project_bois
                 "  left join Trainer$ on Trainer$.ID = Workout_plan$.CreatorID" +
                 "  left join Member$ on Member$.ID = Workout_plan$.CreatorID" +
                 "  join Workout_Followers$ on Workout_Followers$.WorkoutID = Workout_plan$.ID" +
-                "  where Workout_Followers$.MemberID = @memberID" +
+                "  where Workout_Followers$.MemberID = @memberID" + (!orderBy ? filterBy : "") +
                 "  group by Workout_plan$.id, workoutname, creatorid, CreatorType, CreationDate, workoutName, ShareStatus, trainer$.FirstName, trainer$.LastName, Member$.FirstName, Member$.LastName";
             }
+            query += (orderBy ? filterBy : "");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -171,9 +173,8 @@ namespace db_project_bois
             workoutPlan.Show();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void link3ClickedRows()
         {
-            comboBox1.SelectedIndex = -1;
             flowLayoutPanel1.Controls.Clear();
 
             string connectionString = "Data Source=laptop\\SQLEXPRESS02;Initial Catalog=flexTrainer;Integrated Security=True;";
@@ -188,7 +189,7 @@ namespace db_project_bois
             }
             string query = "select workoutName, Workout_plan$.id, CreatorType, CreatorID, CreationDate, STRING_AGG([name], ', ') AS exercises, ShareStatus,  " +
                 "CASE         " +
-                "WHEN @memberTYPE like 'trainer' " +
+                "WHEN CreatorType like 'trainer' " +
                 "THEN concat(Trainer$.FirstName, ' ', Trainer$.LastName)        " +
                 "ELSE concat(Member$.FirstName, ' ', Member$.LastName)  " +
                 "END AS name  " +
@@ -197,8 +198,8 @@ namespace db_project_bois
                 "join Exercise$ on Exercise$.ID = Workout_exercise$.ExerciseID  " +
                 "left join Trainer$ on Trainer$.ID = Workout_plan$.CreatorID  " +
                 "left join Member$ on Member$.ID = Workout_plan$.CreatorID  " +
-                "WHERE     (CreatorID != @memberID AND CreatorType NOT LIKE @memberTYPE)     OR     (CreatorID != @memberID AND CreatorType = @memberTYPE AND ShareStatus like 'public')  " +
-                "group by Workout_plan$.id, CreatorType, CreatorID, CreationDate, ShareStatus, Trainer$.FirstName, Trainer$.LastName, Member$.FirstName, Member$.LastName, workoutName;";
+                "WHERE     (CreatorID != @memberID AND CreatorType NOT LIKE 'trainer')     OR     (CreatorID != @memberID AND CreatorType = 'trainer' AND ShareStatus like 'public')  " + (!orderBy ? filterBy : "") +
+                "group by Workout_plan$.id, CreatorType, CreatorID, CreationDate, ShareStatus, Trainer$.FirstName, Trainer$.LastName, Member$.FirstName, Member$.LastName, workoutName " + (orderBy ? filterBy : "");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -208,8 +209,8 @@ namespace db_project_bois
                     command.Parameters.AddWithValue("@memberID", memberID);
 
                     connection.Open();
-                    
-                    using(SqlDataReader  reader = command.ExecuteReader())
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -363,7 +364,11 @@ namespace db_project_bois
                     }
                 }
             }
+        }
 
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            link3ClickedRows();
             linkLabel3.Enabled = false;
             linkLabel1.Enabled = true;
         }
@@ -372,8 +377,70 @@ namespace db_project_bois
         {
             linkLabel1.Enabled = false;
             linkLabel3.Enabled = true;
-            comboBox1.SelectedIndex = -1;
             showRows();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    filterBy = " and creatortype like 'trainer' ";
+                    orderBy = false;
+                    break;
+                case 1:
+                    filterBy = " and creatortype like 'member'";
+                    orderBy = false;
+                break;
+                case 2:
+                    filterBy = " and goal like 'bulking' ";
+                    orderBy = false;
+                break;
+                case 3:
+                    filterBy = " and goal like 'cutting' ";
+                    orderBy = false;
+                break;
+                case 4:
+                    filterBy = " and goal like 'Weight Loss' ";
+                    orderBy = false;
+                break;
+                case 5:
+                    filterBy = " and experienceLevel like 'beginner' ";
+                    orderBy = false;
+                break;
+                case 6:
+                    filterBy = " and experienceLevel like 'Intermediate' ";
+                    orderBy = false;
+                break;
+                case 7:
+                    filterBy = " and experienceLevel like 'Advanced' ";
+                    orderBy = false;
+                break;
+                case 8:
+                    filterBy = " order by creationdate ";
+                    orderBy = true;
+                break;
+                case 9:
+                    filterBy = " order by creationdate desc ";
+                    orderBy = true;
+                break;
+                default:
+                    filterBy = "";
+                    orderBy = false;
+                break;
+            }
+
+            if (comboBox1.SelectedIndex != -1)
+            {
+                if (linkLabel1.Enabled == true)
+                {
+                    link3ClickedRows();
+                }
+                else
+                {
+                    showRows();
+                }
+            }
         }
     }
 }
