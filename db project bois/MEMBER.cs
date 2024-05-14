@@ -158,7 +158,7 @@ namespace Db_project_1
         {
          //   if (!gymSelected())
             {
-                workoutPlan form = new workoutPlan(true );
+                workoutPlan form = new workoutPlan(true, id);
                 this.Hide();
                 form.ShowDialog();
             }

@@ -16,23 +16,23 @@ namespace Db_project_1
     {
         private bool memberType;
         public int  memberid;
-        public workoutPlan(bool memberType)
+        public workoutPlan(bool memberType, int memberID)
         {
-      //      memberid  = id; 
+            this.memberid  = memberID; 
             InitializeComponent();
             this.memberType = memberType;
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            viewWorkout viewWorkout = new viewWorkout(memberType);
+            viewWorkout viewWorkout = new viewWorkout(memberType, memberid);
             this.Hide();
             viewWorkout.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            createNewWorkout createNewWorkout = new createNewWorkout(memberType);
+            createNewWorkout createNewWorkout = new createNewWorkout(memberType, memberid);
             this.Hide();
             createNewWorkout.Show();
         }

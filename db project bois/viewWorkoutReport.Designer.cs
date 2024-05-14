@@ -34,13 +34,13 @@
             linkLabel3 = new LinkLabel();
             linkLabel1 = new LinkLabel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            comboBox2 = new ComboBox();
             label2 = new Label();
-            comboBox1 = new ComboBox();
             textBox2 = new TextBox();
             label1 = new Label();
             label9 = new Label();
             label10 = new Label();
+            textBox1 = new TextBox();
+            textBox3 = new TextBox();
             SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -101,18 +101,6 @@
             flowLayoutPanel1.TabIndex = 123;
             flowLayoutPanel1.WrapContents = false;
             // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.Enabled = false;
-            comboBox2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Weight Loss", "Bulking", "Cutting" });
-            comboBox2.Location = new Point(123, 121);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(415, 26);
-            comboBox2.TabIndex = 122;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -124,20 +112,9 @@
             label2.TabIndex = 121;
             label2.Text = "Goal:";
             // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.Enabled = false;
-            comboBox1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Beginner", "Intermediate\t", "Advanced" });
-            comboBox1.Location = new Point(223, 158);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(315, 26);
-            comboBox1.TabIndex = 120;
-            // 
             // textBox2
             // 
+            textBox2.Enabled = false;
             textBox2.Font = new Font("Arial Rounded MT Bold", 8F);
             textBox2.Location = new Point(204, 86);
             textBox2.Margin = new Padding(3, 4, 3, 4);
@@ -179,6 +156,28 @@
             label10.TabIndex = 116;
             label10.Text = "Experience Level:";
             // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Font = new Font("Arial Rounded MT Bold", 8F);
+            textBox1.Location = new Point(123, 121);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(415, 26);
+            textBox1.TabIndex = 120;
+            // 
+            // textBox3
+            // 
+            textBox3.Enabled = false;
+            textBox3.Font = new Font("Arial Rounded MT Bold", 8F);
+            textBox3.Location = new Point(223, 157);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(315, 26);
+            textBox3.TabIndex = 124;
+            // 
             // viewWorkoutReport
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -187,10 +186,10 @@
             BackgroundImage = Properties.Resources.workoutPageFRJPG;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(778, 444);
+            Controls.Add(textBox3);
+            Controls.Add(textBox1);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(comboBox2);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
             Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(label9);
@@ -214,12 +213,12 @@
         private LinkLabel linkLabel3;
         private LinkLabel linkLabel1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private ComboBox comboBox2;
         private Label label2;
-        private ComboBox comboBox1;
         private TextBox textBox2;
         private Label label1;
         private Label label9;
         private Label label10;
+        private TextBox textBox1;
+        private TextBox textBox3;
     }
 }
